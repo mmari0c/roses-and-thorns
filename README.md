@@ -1,34 +1,34 @@
-# Web Development Final Project - *Name of App Here*
+# Web Development Final Project - Roses & Thorns
 
-Submitted by: **Your Name Here**
+Submitted by: Mario Nolasco
 
-This web app: **insert description**
+This web app: Is a blog-style journaling platform where users can share their “roses” (positive moments) and “thorns” (challenges). It combines the personal reflection of journaling with the social aspects of modern platforms, allowing people to post and explore both the good and the bad moments happening in their lives.
 
-Time spent: **X** hours spent in total
+Time spent: **15** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
 
-- [ ] **Web app includes a create form that allows the user to create posts**
+- [x] **Web app includes a create form that allows the user to create posts**
   - Form requires users to add a post title
   - Forms should have the *option* for users to add: 
     - additional textual content
     - an image added as an external image URL
-- [ ] **Web app includes a home feed displaying previously created posts**
+- [x] **Web app includes a home feed displaying previously created posts**
   - Web app must include home feed displaying previously created posts
   - By default, each post on the posts feed should show only the post's:
     - creation time
     - title 
     - upvotes count
   - Clicking on a post should direct the user to a new page for the selected post
-- [ ] **Users can view posts in different ways**
+- [x] **Users can view posts in different ways**
   - Users can sort posts by either:
     -  creation time
     -  upvotes count
   - Users can search for posts by title
-- [ ] **Users can interact with each post in different ways**
+- [x] **Users can interact with each post in different ways**
   - The app includes a separate post page for each created post when clicked, where any additional information is shown, including:
     - content
     - image
@@ -38,7 +38,7 @@ The following **required** functionality is completed:
     - Each click increases the post's upvotes count by one
     - Users can upvote any post any number of times
 
-- [ ] **A post that a user previously created can be edited or deleted from its post pages**
+- [x] **A post that a user previously created can be edited or deleted from its post pages**
   - After a user creates a new post, they can go back and edit the post
   - A previously created post can be deleted from its post page
 
@@ -54,7 +54,7 @@ The following **optional** features are implemented:
   - On the post page of the new post, the referenced post is displayed and linked, creating a thread
 - [ ] Users can customize the interface
   - e.g., selecting the color scheme or showing the content and image of each post on the home feed
-- [ ] Users can add more characterics to their posts
+- [x] Users can add more characterics to their posts
   - Users can share and view web videos
   - Users can set flags such as "Question" or "Opinion" while creating a post
   - Users can filter posts by flags on the home feed
@@ -69,10 +69,10 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+[Video Walkthrough](https://imgur.com/a/DqyGjnL)
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
+GIF created with Kap 
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
@@ -80,11 +80,11 @@ GIF created with ...
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+It was difficult being able to know what direction visually I wanted the application to go. But other than that, I used a lot of what we learned in class, and created something i'm very proud of.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2025] [Mario Nolasco]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
