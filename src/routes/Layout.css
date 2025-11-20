@@ -1,0 +1,48 @@
+/* Layout container */
+.layout {
+   width: 100%;;
+ }
+
+
+
+ 
+ /* Header styling */
+ .app-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 2rem;
+   border-bottom: 1px solid black;
+ }
+ 
+ /* Title styling */
+ .app-title {
+   font-size: 2rem;
+   font-weight: 700;
+   line-height: 1.1;
+   margin: 0;
+   display: flex;
+   align-items: center;
+ }
+
+ .app-title img {
+  width: 7rem;
+ }
+ 
+ /* Thorns word styling */
+ .app-title span {
+   font-size: 2rem;
+   font-weight: 700;
+ }
+ 
+ /* Button with subtle border */
+ .nav-button {
+   padding: 0.5rem 1.2rem;
+   background: transparent;
+   border: 2px solid black; /* soft pastel red border */
+   border-radius: 10px;
+   font-size: 1rem;
+   font-weight: 500;
+   cursor: pointer;
+   transition: 0.2s ease;
+ }

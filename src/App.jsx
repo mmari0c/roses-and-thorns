@@ -1,94 +1,135 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { Link } from 'react-router'
 import './App.css'
 import PostCard from './components/PostCard';
+import { faSort } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { supabase } from './client';
 
-// Mock data for posts
-export const mockPosts = [
-  {
-    id: 1,
-    type: "rose",
-    title: "Went on a morning walk",
-    content: "It felt really peaceful today. Finally got some fresh air.",
-    image_url: "https://images.unsplash.com/photo-1520975918318-3f8da8bb07f1",
-    upvotes: 12,
-    created_at: "2025-02-10T08:21:00Z",
-    user: {
-      id: "user_1",
-      username: "mario",
-      avatar_url: "https://i.pravatar.cc/150?img=5"
-    }
-  },
-  {
-    id: 2,
-    type: "thorn",
-    title: "Didn't do well on my quiz",
-    content: "Kinda disappointed in myself, but trying to keep moving.",
-    image_url: "",
-    upvotes: 7,
-    created_at: "2025-02-09T22:10:00Z",
-    user: {
-      id: "user_2",
-      username: "alex",
-      avatar_url: "https://i.pravatar.cc/150?img=12"
-    }
-  },
-  {
-    id: 3,
-    type: "rose",
-    title: "Cooked dinner for myself!",
-    content: "I'm proud of this one. It wasn't perfect, but it tasted good!",
-    image_url: "https://images.unsplash.com/photo-1504674900247-0877df9cc836",
-    upvotes: 20,
-    created_at: "2025-02-08T18:05:00Z",
-    user: {
-      id: "user_3",
-      username: "sophia",
-      avatar_url: "https://i.pravatar.cc/150?img=32"
-    }
-  },
-  {
-    id: 4,
-    type: "thorn",
-    title: "Feeling overwhelmed",
-    content: "Just a rough mental day. I'm hoping tomorrow is lighter.",
-    image_url: "",
-    upvotes: 3,
-    created_at: "2025-02-10T14:47:00Z",
-    user: {
-      id: "user_1",
-      username: "mario",
-      avatar_url: "https://i.pravatar.cc/150?img=5"
-    }
-  },
-  {
-    id: 5,
-    type: "rose",
-    title: "Had coffee with a friend",
-    content: "Really needed this conversation. Made me feel grounded.",
-    image_url: "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
-    upvotes: 18,
-    created_at: "2025-02-07T11:30:00Z",
-    user: {
-      id: "user_4",
-      username: "jason",
-      avatar_url: "https://i.pravatar.cc/150?img=9"
-    }
-  }
-];
 
-function App() {
+function App() { 
+
+  const [originalPosts, setOriginalPosts] = useState([]); // keep full list;
+  const [posts, setPosts] = useState([]);
+  const [filterBy, setFilterBy] = useState("all");
+  const [searchInput, setSearchInput] = useState("");
+
+    useEffect(() => {
+      const fetchPosts = async () => {
+        const { data } = await supabase
+          .from("posts")
+          .select("*")
+          .order("created_at", { ascending: false }); // Fetch latest posts first
+        setOriginalPosts(data);   // full list
+        setPosts(data);          // visible list
+      };
+      fetchPosts();
+    }, []);
+
+
+    const handleFilterChange = (e) => {
+      const choice = e
+      setFilterBy(choice);
+      switch (choice) {
+        case "all":
+          setPosts(originalPosts);
+          break;
+    
+        case "rose":
+          setPosts(originalPosts.filter((p) => p.type === "Rose"));
+          break;
+    
+        case "thorn":
+          setPosts(originalPosts.filter((p) => p.type === "Thorn"));
+          break;
+      }
+    };
+    
+    const handleSort = (e) => {
+      let sorted = [...posts]; // clone so you don’t mutate
+      const type = e.target.value;
+
+      console.log(type)
+    
+      if (type === "latest") {
+        sorted.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+      }
+    
+      if (type === "mostSupported") {
+        sorted.sort((a, b) => b.upvotes - a.upvotes);
+      }
+    
+      setPosts(sorted);
+    };
+
+    const handleSearch = (e) => {
+      const value = e.target.value.toLowerCase();
+      setSearchInput(value);
+    
+      if (!value.trim()) {
+        // empty search → reset to full list
+        setPosts(originalPosts);
+        return;
+      }
+    
+      const filtered = posts.filter((post) =>
+        post.title.toLowerCase().includes(value)
+      );
+    
+      setPosts(filtered);
+    };
+    
 
   return (
-    <div>
-      {/* Add filers for feed */}
-      {/* Button for creating a post */}
-      <h2>Feed</h2>
-      <div className='feed'>
-        {mockPosts.map(post => (
-          <PostCard key={post.id} post={post} />
-        ))}
+  <div className="feed-container">
+    <div className="feed-header">
+      <div className='settings'>
+          <input  onChange={handleSearch}placeholder='Search post...'></input>
+          <div className="filter-bar">
+            <button 
+              className={ filterBy === "all" ? "all-active" : ""} 
+              onClick={() => handleFilterChange("all")}
+            >
+              All
+            </button>
+
+            <button 
+              className={filterBy === "rose" ? "rose-active" : ""} 
+              onClick={() => handleFilterChange("rose")}
+            >
+              Roses
+            </button>
+
+            <button 
+              className={filterBy === "thorn" ? "thorn-active" : ""} 
+              onClick={() => handleFilterChange("thorn")}
+            >
+              Thorns
+            </button>
+            
+          </div>
+        <select onChange={ (inputString) => handleSort(inputString.target.value)}>
+          <option disabled selected>Sort</option>
+          <option value="latest">Latest</option>
+          <option value="mostSupported">Most Supported</option>
+        </select>
       </div>
+      <Link to={"/create-post"}>
+        <button className="create-post-button">Create Post</button>
+      </Link>
     </div>
+
+    <div className="feed">
+      {posts && posts.length > 0 ? (
+        posts.map(post => (
+          <PostCard key={post.id} post={post} />
+        ))
+      ) : (
+        <p>No posts available.</p>
+      )
+      }
+    </div>
+  </div>
   )
 }
 

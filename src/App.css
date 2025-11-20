@@ -1,42 +1,104 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  margin: 0 5rem;
+  padding: 0rem 1rem;
+  width: 100%;
+  max-width: none;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.feed-container {
+  display: flex;
+  flex-direction: column;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.feed-header {
+  display: flex;
+  justify-content: space-between; /* aligns button with cards */
+  margin-bottom: 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.input, textarea {
+  border: 2px solid #e5e5e5
 }
 
-.card {
-  padding: 2em;
+.settings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
 }
 
-.read-the-docs {
-  color: #888;
+.settings input {
+  border: 2px solid #e5e5e5;
+  font-family: "Gochi Hand";
+}
+
+.filter-bar, .sort-bar {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.filter-bar button,
+.sort-bar button {
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  border: 2px solid #e5e5e5;
+  background: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.create-post-button {
+  background-color: var(--rose-strong);
+}
+
+.settings select {
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  border: 2px solid #e5e5e5;
+  background: var(--bg-main);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  width: 10rem;
+  font-family: "Gochi Hand";
+}
+
+/* When active */
+.filter-bar button.rose-active {
+  background: var(--rose-bg);  /* soft pastel red background */
+  border-color: #d8aaaa;
+  color: #8a4d4d;
+}
+
+.filter-bar button.thorn-active {
+  background: var(--thorn-bg);  /* soft pastel green background */
+  border-color: #aaddcc;
+  color: #4d8a7a;
+}
+
+.filter-bar button.all-active {
+  background: #f0f0f0;  /* light gray background */
+  border-color: #bdbdbd;
+  color: #6e6e6e;
+}
+
+/* Hover */
+.sort-bar button:hover {
+  background: #f6f6f6;
+}
+
+
+.feed {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+button {
+  border-radius: 1rem;
+}
+
+textarea {
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
 }

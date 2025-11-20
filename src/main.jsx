@@ -3,14 +3,20 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router'
 import './index.css'
 import Layout from './routes/Layout.jsx'
+import CreatePost from './routes/CreatePost.jsx'
 import App from './App.jsx'
+import DetailView from './routes/DetailView.jsx'
+import EditPost from './routes/EditPost.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="" element={<Layout/>}>
+        <Route path="/" element={<Layout/>}>
           <Route index element={<App />} />
+          <Route path="post/:postId" element={<DetailView />}/>
+          <Route path="/create-post" element={<CreatePost />} />
+          <Route path="/edit-post/:postId" element={<EditPost />} />
         </Route>
       </Routes>
     </BrowserRouter>
