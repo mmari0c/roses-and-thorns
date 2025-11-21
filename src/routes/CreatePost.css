@@ -72,9 +72,9 @@ input:focus, textarea:focus {
 
 .delete-button {
    background-color: var(--rose-strong);
-   margin-bottom: 1rem;
 }
 
 .edit-button {
    background-color: var(--thorn-strong);
+   margin: 1rem 0;
 }

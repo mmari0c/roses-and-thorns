@@ -165,9 +165,8 @@ function EditPost() {
             onChange={handleFileChange}
         />
       </div>
-
-      <button className="delete-button" type="button" onClick={deletePost}>Delete Post</button>
       <button className="edit-button" type="submit" onClick={updatePost}>Edit Post</button>
+      <button className="delete-button" type="button" onClick={deletePost}>Delete Post</button>
      </form>
     </div>
 

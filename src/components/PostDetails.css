@@ -17,6 +17,10 @@
   gap: 0.5rem;
   flex-direction: row-reverse;
  }
+
+ .post-date {
+  font-size: small;
+ }
  
  /* Left side: post */
  .post-info {
