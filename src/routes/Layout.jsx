@@ -1,6 +1,7 @@
 import { Outlet } from "react-router"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircleUser } from "@fortawesome/free-regular-svg-icons"
+import Logo from "../assets/logo.png";
 import "./Layout.css"
 
 function Layout() {
@@ -9,7 +10,7 @@ function Layout() {
          <header className="app-header">
             <h1 className="app-title">
                <div>
-                  <img src="src/assets/logo.png" alt="" />
+                  <img src={Logo} alt="Roses & Thorns Logo" />
                </div>
                <div>
                   <span className="title-rose">Roses</span>
