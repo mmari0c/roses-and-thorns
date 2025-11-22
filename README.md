@@ -1,6 +1,6 @@
 # Roses & Thorns
 
-Roses & Thorns is a gentle, reflective social platform where users can share meaningful moments from their day — the **roses** (positives), the **thorns** (challenges), and everything in between.  
+Roses & Thorns is a gentle, reflective social platform where users can share meaningful moments from their day, the **roses** (positives), the **thorns** (challenges), and everything in between.  
 Designed with warm pastel colors and a handwritten aesthetic, the app creates a cozy space for honest expression, encouragement, and emotional reflection.
 
 <p align="center">
@@ -9,10 +9,10 @@ Designed with warm pastel colors and a handwritten aesthetic, the app creates a 
 
 ---
 
-## 🌿 Features
+## Features
 
 - **Create Posts**  
-  Share a rose or thorn with a title, content, and optional image upload via Supabase Storage.
+  Share a rose or thorn with a title, content, and image upload via Supabase Storage.
 
 - **Home Feed**  
   Displays all posts with title, timestamp, and support count.
@@ -31,10 +31,10 @@ Designed with warm pastel colors and a handwritten aesthetic, the app creates a 
   Users can leave comments under posts to support each other.
 
 - **Support (Upvote) System**  
-  Show appreciation for posts — supports update immediately.
+  Show appreciation for posts, supports update immediately.
 
 - **Edit & Delete Posts**  
-  The original author can update or remove their own posts.
+  The *original* author can update or remove their own posts.
 
 - **Image Uploads**  
   Upload images from your device, stored securely via Supabase Storage.
@@ -44,13 +44,11 @@ Designed with warm pastel colors and a handwritten aesthetic, the app creates a 
 
 ---
 
-## 🎨 Figma Design
+## Figma Design
 
 View the original UI and layout concepts on Figma:
 
-https://your-figma-link-here
-
-(Replace with your actual Figma file URL.)
+[Figma Link](https://www.figma.com/design/cecx6CqpcFj4OR62twbMOb/Roses---Thorns?node-id=0-1&t=GtpJlAXitqzorqhJ-1)
 
 ---
 
