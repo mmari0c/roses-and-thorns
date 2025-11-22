@@ -52,20 +52,18 @@ View the original UI and layout concepts on Figma:
 
 ---
 
-## 🌸 Try It Live
+## Try It Live
 
 Roses & Thorns is deployed here:
 
-https://your-netlify-link-here
-
-(Add your Netlify URL once deployed.)
+[Roses & Thorns](https://rosesandthorns.netlify.app/)
 
 ---
 
-## 🛠 Technologies Used
+## Technologies Used
 
 - **React** — component architecture, hooks, routing  
-- **Supabase** — database, authentication, image storage  
+- **Supabase** — database, image storage  
 - **JavaScript**  
 - **CSS** — custom pastel theme + typography system  
 - **React Router** — navigation for feed, detail, and edit pages  
