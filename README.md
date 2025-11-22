@@ -9,8 +9,7 @@ Designed with warm pastel colors and a handwritten aesthetic, the app creates a 
 
 You can place a custom banner image here later:
 
-![Roses & Thorns Banner](<img width="1024" height="1024" alt="logo" src="https://github.com/user-attachments/assets/90456577-6ec9-4dd5-967b-3e4ff2558e74" />
-)
+<img width="1024" height="1024" alt="logo" src="https://github.com/user-attachments/assets/90456577-6ec9-4dd5-967b-3e4ff2558e74" />
 
 (Leave this out if you don’t have a banner yet.)
 
