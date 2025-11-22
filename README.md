@@ -1,99 +1,83 @@
-# Web Development Final Project - Roses & Thorns
+# 🌹 Roses & Thorns
 
-Submitted by: Mario Nolasco
+Roses & Thorns is a gentle, reflective social platform where users can share meaningful moments from their day — the **roses** (positives), the **thorns** (challenges), and everything in between.  
+Designed with warm pastel colors and a handwritten aesthetic, the app creates a cozy space for honest expression, encouragement, and emotional reflection.
 
-This web app: Is a blog-style journaling platform where users can share their “roses” (positive moments) and “thorns” (challenges). It combines the personal reflection of journaling with the social aspects of modern platforms, allowing people to post and explore both the good and the bad moments happening in their lives.
+---
 
-Time spent: **15** hours spent in total
+## 🌼 Project Banner (Optional)
 
-## Required Features
+You can place a custom banner image here later:
 
-The following **required** functionality is completed:
+![Roses & Thorns Banner](./banner.png)
 
+(Leave this out if you don’t have a banner yet.)
 
-- [x] **Web app includes a create form that allows the user to create posts**
-  - Form requires users to add a post title
-  - Forms should have the *option* for users to add: 
-    - additional textual content
-    - an image added as an external image URL
-- [x] **Web app includes a home feed displaying previously created posts**
-  - Web app must include home feed displaying previously created posts
-  - By default, each post on the posts feed should show only the post's:
-    - creation time
-    - title 
-    - upvotes count
-  - Clicking on a post should direct the user to a new page for the selected post
-- [x] **Users can view posts in different ways**
-  - Users can sort posts by either:
-    -  creation time
-    -  upvotes count
-  - Users can search for posts by title
-- [x] **Users can interact with each post in different ways**
-  - The app includes a separate post page for each created post when clicked, where any additional information is shown, including:
-    - content
-    - image
-    - comments
-  - Users can leave comments underneath a post on the post page
-  - Each post includes an upvote button on the post page. 
-    - Each click increases the post's upvotes count by one
-    - Users can upvote any post any number of times
+---
 
-- [x] **A post that a user previously created can be edited or deleted from its post pages**
-  - After a user creates a new post, they can go back and edit the post
-  - A previously created post can be deleted from its post page
+## 🌿 Features
 
-The following **optional** features are implemented:
+- **Create Posts**  
+  Share a rose or thorn with a title, content, and optional image upload via Supabase Storage.
 
+- **Home Feed**  
+  Displays all posts with title, timestamp, and support count.
 
-- [ ] Web app implements pseudo-authentication
-  - Users can only edit and delete posts or delete comments by entering the secret key, which is set by the user during post creation
-  - **or** upon launching the web app, the user is assigned a random user ID. It will be associated with all posts and comments that they make and displayed on them
-  - For both options, only the original user author of a post can update or delete it
-- [ ] Users can repost a previous post by referencing its post ID. On the post page of the new post
-  - Users can repost a previous post by referencing its post ID
-  - On the post page of the new post, the referenced post is displayed and linked, creating a thread
-- [ ] Users can customize the interface
-  - e.g., selecting the color scheme or showing the content and image of each post on the home feed
-- [x] Users can add more characterics to their posts
-  - Users can share and view web videos
-  - Users can set flags such as "Question" or "Opinion" while creating a post
-  - Users can filter posts by flags on the home feed
-  - Users can upload images directly from their local machine as an image file
-- [ ] Web app displays a loading animation whenever data is being fetched
+- **Filtering & Sorting**  
+  - Filter by roses, thorns, or view all  
+  - Sort by latest or most supported  
 
-The following **additional** features are implemented:
+- **Search**  
+  Search posts by title in real time.
 
-* [ ] List anything else that you added to improve the site's functionality!
+- **Post Detail View**  
+  See full post content, image, comments, and the number of supports.
 
-## Video Walkthrough
+- **Comments**  
+  Users can leave comments under posts to support each other.
 
-Here's a walkthrough of implemented user stories:
+- **Support (Upvote) System**  
+  Show appreciation for posts — supports update immediately.
 
-[Video Walkthrough](https://imgur.com/a/DqyGjnL)
+- **Edit & Delete Posts**  
+  The original author can update or remove their own posts.
 
-<!-- Replace this with whatever GIF tool you used! -->
-GIF created with Kap 
-<!-- Recommended tools:
-[Kap](https://getkap.co/) for macOS
-[ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
+- **Image Uploads**  
+  Upload images from your device, stored securely via Supabase Storage.
 
-## Notes
+- **Responsive UI**  
+  Built with soft pink and green pastels, handwritten Gochi Hand headers, and clean typography for readability.
 
-It was difficult being able to know what direction visually I wanted the application to go. But other than that, I used a lot of what we learned in class, and created something i'm very proud of.
+---
 
-## License
+## 🎨 Figma Design
 
-    Copyright [2025] [Mario Nolasco]
+View the original UI and layout concepts on Figma:
 
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
+https://your-figma-link-here
 
-        http://www.apache.org/licenses/LICENSE-2.0
+(Replace with your actual Figma file URL.)
 
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
+---
+
+## 🌸 Try It Live
+
+Roses & Thorns is deployed here:
+
+https://your-netlify-link-here
+
+(Add your Netlify URL once deployed.)
+
+---
+
+## 🛠 Technologies Used
+
+- **React** — component architecture, hooks, routing  
+- **Supabase** — database, authentication, image storage  
+- **JavaScript**  
+- **CSS** — custom pastel theme + typography system  
+- **React Router** — navigation for feed, detail, and edit pages  
+- **Font Awesome** — UI icons  
+- **Figma** — original wireframes, branding, and design planning  
+
+---
