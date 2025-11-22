@@ -1,9 +1,11 @@
-# 🌹 Roses & Thorns
+# Roses & Thorns
 
 Roses & Thorns is a gentle, reflective social platform where users can share meaningful moments from their day — the **roses** (positives), the **thorns** (challenges), and everything in between.  
 Designed with warm pastel colors and a handwritten aesthetic, the app creates a cozy space for honest expression, encouragement, and emotional reflection.
 
-<img width="500" height="500" alt="logo" src="https://github.com/user-attachments/assets/90456577-6ec9-4dd5-967b-3e4ff2558e74" />
+<p align="center">
+  <img src="./banner.png" alt="Roses & Thorns Banner" width="100%" />
+</p>
 
 ---
 
