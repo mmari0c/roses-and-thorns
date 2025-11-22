@@ -1,6 +1,7 @@
 # Roses & Thorns
 
-Roses & Thorns is a gentle, reflective social platform where users can share meaningful moments from their day, the **roses** (positives), the **thorns** (challenges), and everything in between.  
+Roses & Thorns is a gentle, reflective social platform where users can share meaningful moments from their day, the **roses** (positives), the **thorns** (challenges), and everything in between.
+
 Designed with warm pastel colors and a handwritten aesthetic, the app creates a cozy space for honest expression, encouragement, and emotional reflection.
 
 <p align="center">
@@ -69,5 +70,3 @@ Roses & Thorns is deployed here:
 - **React Router** — navigation for feed, detail, and edit pages  
 - **Font Awesome** — UI icons  
 - **Figma** — original wireframes, branding, and design planning  
-
----
