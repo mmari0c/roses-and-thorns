@@ -60,7 +60,7 @@ const PostCard = ({ post: initialPost }) => {
                <p className="post-date">{timeAgo(post.created_at)}</p>
          </div>
          <div className="post-footer">
-            <span className="upvotes"><FontAwesomeIcon icon={faHeart} onClick={updateUpvotes}/>{post.upvotes}</span>
+            <span onClick={updateUpvotes} className="upvotes"><FontAwesomeIcon icon={faHeart} />{post.upvotes}</span>
             <span className="comments"><FontAwesomeIcon icon={faComment} />{post.comments_count}</span>
             {/* <span className={`post-type ${post.type}`}>{post.type === 'rose' ? '🌹 Rose' : '🌵 Thorn'}</span> */}
          </div>
