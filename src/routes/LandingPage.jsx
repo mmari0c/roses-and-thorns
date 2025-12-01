@@ -1,5 +1,6 @@
 import "./LandingPage.css";
 import { Link } from "react-router";
+import Logo from "../assets/logo.png";
 
 function LandingPage () {
   return (
@@ -8,7 +9,7 @@ function LandingPage () {
    {/* left side */}
    <div className="landing-left">
    <img 
-      src="src/assets/logo.png" 
+      src={Logo} 
       alt="Roses & Thorns logo" 
       className="landing-logo"
    />
