@@ -1,7 +1,47 @@
-import { Link } from "react-router"
+import { useNavigate, Link } from "react-router"
+import { useState, useEffect } from "react"
+import { supabase } from "../client";
 import Logo from "../assets/logo.png";
 
 function SignUp() {
+
+   const [form, setForm] = useState({ email: "", password: "", username: "" });
+
+   const [error, setError] = useState("");
+   const [loading, setLoading] = useState(false);
+   const navigate = useNavigate();
+
+   const handleChange = (e) => {
+      const {name, value} = e.target;
+      setForm( (prev) => ({...prev, [name]: value}) );
+   };
+
+   const handleSignUp = async (e) => {
+      e.preventDefault();
+      setError("");
+      setLoading(true);
+
+      const { email, password, username } = form;
+
+      const { data, error } = await supabase.auth.signUp({
+         email,
+         password,
+         options: {
+            data: { username }
+         }
+      });
+
+      setLoading(false);
+
+      if (error) {
+         console.log(error);
+         setError(error.message);
+         return;
+      }
+
+      navigate("/feed");
+   }
+
   return (
       <div className="landing-container">
       <div className="landing-right">
@@ -11,12 +51,16 @@ function SignUp() {
          <p>Start sharing your roses and thorns with the community.</p>
       </div>
 
-      <form className="landing-form">
-         <input type="email" placeholder="Email" />
-         <input type="text" placeholder="Username" />
-         <input type="password" placeholder="Password" />
-         <button type="submit">Sign Up</button>
+      <form className="landing-form" onSubmit={handleSignUp}>
+         <input name="email" value={form.email}type="email" placeholder="Email" required onChange={handleChange} />
+         <input name="username" value={form.username} type="text" placeholder="Username" required onChange={handleChange}/>
+         <input name="password" value={form.password} type="password" placeholder="Password" required onChange={handleChange}/>
+         <button type="submit" disabled={loading}>
+            {loading ? "Signing Up..." : "Sign Up"}
+         </button>
       </form>
+
+      {error && <p className="error-text">{error}</p>}
 
       <p className="signup-text">
          Already have an account? <Link to="/">Log In</Link>

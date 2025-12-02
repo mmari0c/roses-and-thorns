@@ -1,16 +1,27 @@
-import { Outlet } from "react-router"
+import { Outlet, useNavigate, Link } from "react-router"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { supabase } from "../client";
 import { faCircleUser } from "@fortawesome/free-regular-svg-icons"
+
 import Logo from "../assets/logo.png";
 import "./Layout.css"
 
 function Layout() {
+   const navigate = useNavigate();
+
+   const handleLogout = async () => {
+      await supabase.auth.signOut();
+      navigate("/");
+   }
+
    return (
       <div className="layout">
          <header className="app-header">
             <h1 className="app-title">
                <div>
-                  <img src={Logo} alt="Roses & Thorns Logo" />
+                  <Link to="/feed" className="brand">
+                     <img src={Logo} alt="Roses & Thorns logo" className="brand-logo" />
+                  </Link>
                </div>
                <div>
                   <span className="title-rose">Roses</span>
@@ -19,6 +30,10 @@ function Layout() {
                   <span className="title-thorn">Thorns</span>
                </div>
             </h1>
+
+            <button onClick={handleLogout} className="logout-button">
+               Log Out
+            </button>
 
             <nav className="app-nav">
                <FontAwesomeIcon icon={faCircleUser} size="2x" />

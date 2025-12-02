@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import './App.css'
 import PostCard from './components/PostCard';
 import { supabase } from './client';
@@ -7,22 +7,37 @@ import { supabase } from './client';
 
 function App() { 
 
+  const navigate = useNavigate();
+
   const [originalPosts, setOriginalPosts] = useState([]); // keep full list;
   const [posts, setPosts] = useState([]);
   const [filterBy, setFilterBy] = useState("all");
   const [searchInput, setSearchInput] = useState("");
 
-    useEffect(() => {
-      const fetchPosts = async () => {
-        const { data } = await supabase
-          .from("posts")
-          .select("*")
-          .order("created_at", { ascending: false }); // Fetch latest posts first
-        setOriginalPosts(data);   // full list
-        setPosts(data);          // visible list
-      };
-      fetchPosts();
-    }, []);
+  useEffect(() => {
+    const loadData = async () => {
+      // 1️⃣ Check if user is logged in
+      const { data: sessionData } = await supabase.auth.getSession();
+      if (!sessionData.session) {
+        navigate("/");
+        return; // stop running fetchPosts
+      }
+  
+      // 2️⃣ Fetch posts
+      const { data: postsData } = await supabase
+        .from("posts")
+        .select("*")
+        .order("created_at", { ascending: false });
+  
+        if (postsData) {
+          setOriginalPosts(postsData);
+          setPosts(postsData);
+        }
+    };
+  
+    loadData();
+  }, [navigate]);
+  
 
 
     const handleFilterChange = (e) => {

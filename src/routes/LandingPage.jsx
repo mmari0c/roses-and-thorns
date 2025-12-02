@@ -1,8 +1,50 @@
 import "./LandingPage.css";
-import { Link } from "react-router";
+import { useNavigate, Link } from "react-router"
+import { useState, useEffect} from "react"
+import { supabase } from "../client";
 import Logo from "../assets/logo.png";
 
 function LandingPage () {
+
+   const [form, setForm] = useState({ username: "", password: "" });
+   const [error, setError] = useState("");
+   const [loading, setLoading] = useState(false);
+
+   const navigate = useNavigate();
+
+   useEffect( () => {
+      supabase.auth.getSession().then( ({ data }) => {
+         if (data.session) {
+            navigate("/feed");
+         }
+      });
+   }, [navigate] );
+
+   const handleChange = (e) => {
+      const {name, value} = e.target;
+      setForm( (prev) => ({...prev, [name]: value}) );
+   };
+
+   const handleLogin = async (e) => {
+      e.preventDefault();
+      setError("");
+
+      const { email, password } = form;
+
+      const { data, error } = await supabase.auth.signInWithPassword({
+         email,
+         password,
+      });
+
+      if (error) {
+         console.log(error)
+         setError(error.message);
+         return;
+      }
+
+      navigate("/feed");
+   };
+
   return (
    <div className="landing-container">
 
@@ -27,11 +69,16 @@ function LandingPage () {
    </div>
 
    <div>
-      <form className="landing-form">
-         <input type="text" placeholder="Username" />
-         <input type="password" placeholder="Password" />
-         <button type="submit">Log In</button>
+      <form className="landing-form" onSubmit={handleLogin}>
+         <input name="email" value={form.email} type="email" placeholder="Email" required onChange={handleChange}/>
+         <input name="password" value={form.password} type="password" placeholder="Password" required onChange={handleChange}/>
+         <button type="submit" disabled={loading}>
+            {loading ? "Logging in..." : "Log In"}
+         </button>
       </form>
+
+      { error && <p className="error-text">{error}</p> }
+
       <p className="signup-text">
       New here? <Link to="/signup"> Sign Up</Link>
       </p>
