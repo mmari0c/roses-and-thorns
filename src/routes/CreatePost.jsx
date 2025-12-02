@@ -89,7 +89,7 @@ function CreatePost() {
 
   return (
     <div>
-      <button className="back-button" onClick={() => window.history.back()}>
+      <button className="create-post-button" onClick={() => window.history.back()}>
       &larr; Back to Feed
       </button>
     <div className="create-post-container">

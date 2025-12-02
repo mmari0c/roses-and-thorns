@@ -59,8 +59,7 @@ a {
 }
 
 body {
-  margin: 0;
-  display: flex;
+  margin: 0 7rem;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;

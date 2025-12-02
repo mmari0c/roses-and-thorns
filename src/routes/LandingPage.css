@@ -1,3 +1,7 @@
+.landing-body {
+  display: flex;
+}
+
 .landing-container {
    display: flex;
    align-items: center;

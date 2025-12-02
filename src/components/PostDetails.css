@@ -70,6 +70,10 @@
  .comment-section button {
    background-color: var(--thorn-accent);
  }
+
+ .comment-section button:hover {
+  background-color: var(--thorn-strong);
+}
  
  /* Input wrapper */
  .comment-input-wrapper {

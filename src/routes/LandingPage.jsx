@@ -13,11 +13,17 @@ function LandingPage () {
    const navigate = useNavigate();
 
    useEffect( () => {
+      document.body.classList.add("landing-body");
+
       supabase.auth.getSession().then( ({ data }) => {
          if (data.session) {
             navigate("/feed");
          }
       });
+
+      return () => {
+        document.body.classList.remove("landing-body");
+      };
    }, [navigate] );
 
    const handleChange = (e) => {
