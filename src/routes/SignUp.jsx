@@ -6,10 +6,17 @@ import Logo from "../assets/logo.png";
 function SignUp() {
 
    const [form, setForm] = useState({ email: "", password: "", username: "" });
-
    const [error, setError] = useState("");
    const [loading, setLoading] = useState(false);
    const navigate = useNavigate();
+
+   useEffect(() => {
+      document.body.classList.add("landing-body");
+    
+      return () => {
+        document.body.classList.remove("landing-body");
+      };
+    }, []);    
 
    const handleChange = (e) => {
       const {name, value} = e.target;
