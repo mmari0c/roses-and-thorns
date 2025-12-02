@@ -1,4 +1,5 @@
 import { Outlet, useNavigate, Link } from "react-router"
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { supabase } from "../client";
 import { faCircleUser } from "@fortawesome/free-regular-svg-icons"
@@ -7,12 +8,31 @@ import Logo from "../assets/logo.png";
 import "./Layout.css"
 
 function Layout() {
+
    const navigate = useNavigate();
+   const [username, setUsername] = useState("");
+   const [menuOpen, setMenuOpen] = useState(false);
+
+   const toggleMenu = () => {
+   setMenuOpen((prev) => !prev);
+   };
+
+
+   useEffect( () => {
+      const getUsername = async () => {
+         const { data, error } = await supabase.auth.getUser();
+         if (!error) {
+            setUsername(data.user.user_metadata.username);
+         }
+       };
+      getUsername();
+   },[]);
 
    const handleLogout = async () => {
       await supabase.auth.signOut();
       navigate("/");
    }
+
 
    return (
       <div className="layout">
@@ -31,14 +51,20 @@ function Layout() {
                </div>
             </h1>
 
-            <button onClick={handleLogout} className="logout-button">
-               Log Out
-            </button>
-
             <nav className="app-nav">
-               <FontAwesomeIcon icon={faCircleUser} size="2x" />
-               {/* You can swap for Login / Sign Up */}
+               <div className="user-menu-wrapper" onClick={toggleMenu}>
+                  <span className="username">{username}</span>
+                  <FontAwesomeIcon icon={faCircleUser} size="2x" />
+               </div>
+
+               {menuOpen && (
+                  <div className="user-dropdown">
+                     <button onClick={() => navigate("/profile")}>View Profile</button>
+                     <button onClick={handleLogout}>Log Out</button>
+                  </div>
+               )}
             </nav>
+
          </header>
 
          <main>

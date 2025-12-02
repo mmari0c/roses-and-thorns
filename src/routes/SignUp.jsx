@@ -27,7 +27,7 @@ function SignUp() {
          email,
          password,
          options: {
-            data: { username }
+            data: { username: username }
          }
       });
 
