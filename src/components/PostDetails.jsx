@@ -11,15 +11,28 @@ const PostDetails = () => {
    const { postId } = useParams()
 
    const [post, setPost] = useState(null);
-
-   console.log(post)
-
    const [comments, setComments] = useState([]);
    const [newComment, setNewComment] = useState(null);
+   const [currentUser, setCurrentUser] = useState(null);
+   const [menuOpen, setMenuOpen] = useState(false);
+
+   const toggleMenu = () => {
+   setMenuOpen((prev) => !prev);
+   };
 
    useEffect( () => {
-      console.log("Fetching post details for ID:", postId);
+
       const fetchPostDetails = async () => {
+
+         const { data: userData, error: userError } = await supabase.auth.getUser();
+         if (userError || !userData) {
+            console.error("Error fetching user data:", userError);
+         } else {
+            console.log("user data:", userData.user);
+            setCurrentUser(userData.user);
+         }
+
+
          const data = await supabase
          .from('posts')
          .select(`*, comments(*)`)
@@ -63,6 +76,8 @@ const PostDetails = () => {
         .insert({
           post_id: postId,
           content: newComment,
+          user_id: currentUser.id,
+          username: currentUser.user_metadata?.username || currentUser.email,
           // user_id: currentUserId (later, if you have auth)
         })
         .select('*')
@@ -78,7 +93,7 @@ const PostDetails = () => {
         return;
       }
     
-      // ✅ Update local state so it shows immediately
+
       setComments((prev) => [...prev, data]);
       setNewComment("");
     };
@@ -89,7 +104,7 @@ const PostDetails = () => {
          <div>Loading post details...</div>
       ) : (
          <div className="post-details-container">
-            <button className="back-button" onClick={() => window.history.back()}>
+            <button className="create-post-button" onClick={() => window.history.back()}>
                &larr; Back to Feed
             </button>
             <div className="post-detail">
@@ -98,14 +113,32 @@ const PostDetails = () => {
                      <div className="post-detail-header">
                         <h3>{post.title}</h3>
                         <p className={`${post.type}-header`}>{post.type}</p>
+
                      </div>
-                     <Link to={`/edit-post/${post.id}` } state={post}>
-                        <FontAwesomeIcon style={{ fontSize: "1.25rem", color:"black"
-                         }} icon={faEllipsis} />
-                     </Link>
+                     {currentUser?.id === post.user_id && (
+                        <>
+                           <button onClick={toggleMenu}>
+                              <FontAwesomeIcon style={{ fontSize: "1.25rem", color: "black" }} icon={faEllipsis} />
+                           </button>
+                           {menuOpen && (
+                              <div className="user-dropdown post-dropdown">
+                                 <button>
+                                    <Link to={`/edit-post/${post.id}`} state={post}>
+                                       Edit
+                                    </Link>
+                                 </button>
+                                 <button>Delete</button>
+                              </div>
+                           )}
+                        </>
+                     )}
+
+
                   </div>
                   <img src={`${post.image_url}`} alt="Post" />
+                  {/* <h3>{post.title}</h3> */}
                   <p className="post-contents">{post.content}</p>
+                  <p>Posted by {post.username}</p>
                </div>
                <div className="comment-section">
                   <div className="comment-input-wrapper">
@@ -126,7 +159,7 @@ const PostDetails = () => {
                                  <div className="user-info">
                                     <FontAwesomeIcon icon={faUser} className="user-icon"/>
                                     <div className="user-header">
-                                       <h3>username</h3>
+                                       <h3>{comment.username}</h3>
                                        <p className="comment-content">{comment.content}</p>
                                     </div>
                                  </div>

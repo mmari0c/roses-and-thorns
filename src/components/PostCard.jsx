@@ -42,16 +42,17 @@ const PostCard = ({ post: initialPost }) => {
 
    return (
       <div className={`post-card ${post.type}`}>
-         <div className="post-header">
             {/* <img src={post.user.avatar_url} alt={`${post.user.username}'s avatar`} className="avatar" /> */}
             <div className="user-info">
-               <FontAwesomeIcon icon={faUser} className="user-icon"/>
+               <div className="user">
+                  <FontAwesomeIcon icon={faUser} className="user-icon"/>
+                  <p>{post.username}</p>
+               </div>
                <div className="user-header">
                   {/* <h3>username</h3> */}
                   <p className={`${post.type}-header`}>{post.type}</p>
                </div>
             </div>
-         </div>
             <Link to={`/post/${post.id}`}>
                <img  src={`${post.image_url}`} alt="" />
             </Link>

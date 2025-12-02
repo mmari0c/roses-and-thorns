@@ -59,15 +59,31 @@ function CreatePost() {
 
   const CreatePost = async (event) => {
 
-    console.log(postData);
     event.preventDefault();
 
-    await supabase
+    const { data: userData, error: userError } = await supabase.auth.getUser();
+
+    if (userError || !userData?.user) {
+      console.error("No logged in user", userError);
+      // ChANGE TO REDIRECT TO LOGIN AND SHOW MESSAGE
+      return;
+    }
+
+    const user = userData.user;
+    const userId = user.id;
+    const username = user.user_metadata?.username || user.email
+
+    const { error } = await supabase
     .from('posts')
-    .insert({title: postData.title, type: postData.type, content: postData.content, image_url: postData.image_url})
+    .insert({title: postData.title, type: postData.type, content: postData.content, image_url: postData.image_url, user_id: userId, username: username })
     .select();
 
-    window.location = "/";
+    if (error) {
+      console.error("Error creating post:", error);
+      return;
+    }
+
+    window.location = "/feed";
   }
 
 

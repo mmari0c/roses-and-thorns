@@ -9,6 +9,7 @@ import DetailView from './routes/DetailView.jsx'
 import EditPost from './routes/EditPost.jsx'
 import LandingPage from './routes/LandingPage.jsx'
 import SignUp from './routes/SignUp.jsx'
+import Profile from './routes/Profile.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -21,6 +22,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="post/:postId" element={<DetailView />}/>
           <Route path="/create-post" element={<CreatePost />} />
           <Route path="/edit-post/:postId" element={<EditPost />} />
+          <Route path="/profile/:username" element={<Profile />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

@@ -97,7 +97,7 @@ function App() {
   <div className="feed-container">
     <div className="feed-header">
       <div className='settings'>
-          <input  onChange={handleSearch}placeholder='Search post...'></input>
+          {/* <input  onChange={handleSearch}placeholder='Search post...'></input> */}
           <div className="filter-bar">
             <button 
               className={ filterBy === "all" ? "all-active" : ""} 

@@ -59,7 +59,9 @@ function Layout() {
 
                {menuOpen && (
                   <div className="user-dropdown">
-                     <button onClick={() => navigate("/profile")}>View Profile</button>
+                     <Link to={`/profile/${username}`} >
+                        <button>View Profile</button>
+                     </Link>
                      <button onClick={handleLogout}>Log Out</button>
                   </div>
                )}

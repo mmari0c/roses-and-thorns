@@ -71,10 +71,10 @@ input:focus, textarea:focus {
 }
 
 .delete-button {
-   background-color: var(--rose-strong);
+   background-color: var(--rose-accent);
 }
 
 .edit-button {
-   background-color: var(--thorn-strong);
+   background-color: var(--thorn-accent);
    margin: 1rem 0;
 }

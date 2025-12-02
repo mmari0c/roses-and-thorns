@@ -51,6 +51,15 @@
    flex-direction: column;     /* username on top, type underneath */
    line-height: 1.2;
  }
+
+ .user {
+  display: flex;
+  align-items: center;
+ }
+
+ .user p {
+  margin: 0 0.5rem;
+ }
  
  .user-header h3 {
    margin: 0;
@@ -59,22 +68,30 @@
  }
  
  .user-header p {
-   margin: 0;
+   margin: 0 1rem;
    font-size: 0.85rem;              /* lighter secondary text */
+ }
+
+ .user-info {
+  display: flex;
+  justify-content: space-between;
  }
 
  .Thorn-header {
   background-color: var(--thorn-bg);
   padding: 0.2rem 0.5rem;
   border-radius: 8px;
-  width:fit-content
+  width:fit-content;
+  margin-right: 1rem;
  }
 
  .Rose-header {
   background-color: var(--rose-bg);
   padding: 0.2rem 0.5rem;
   border-radius: 8px;
-  width: fit-content
+  width: fit-content;
+  margin-right: 1rem;
+
  }
 
  .post-content h2 {

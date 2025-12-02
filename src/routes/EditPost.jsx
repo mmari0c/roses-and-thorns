@@ -128,7 +128,7 @@ function EditPost() {
 
   return (
     <div>
-      <button className="back-button" onClick={() => window.history.back()}>
+      <button className="create-post-button" onClick={() => window.history.back()}>
       &larr; Back to Post
       </button>
     <div className="create-post-container">
