@@ -1,6 +1,7 @@
 import { Outlet, useNavigate, Link } from "react-router"
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faHeart } from "@fortawesome/free-solid-svg-icons"
 import { supabase } from "../client";
 import { faCircleUser } from "@fortawesome/free-regular-svg-icons"
 
@@ -70,6 +71,11 @@ function Layout() {
          <main className="paper-shell">
             <Outlet />
          </main>
+
+         <footer>
+            <p>Made with <FontAwesomeIcon icon={faHeart} /> by <a target="_blank" className="footer-name" href="https://marionolasco.com/"> Mario Nolasco</a></p>
+         </footer>
+
       </div>
    )
 }

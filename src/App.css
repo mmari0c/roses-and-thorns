@@ -13,7 +13,7 @@
 .feed-header {
   display: flex;
   justify-content: space-between; /* aligns button with cards */
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .input, textarea {
@@ -42,7 +42,7 @@
   padding: 0.4rem 1rem;
   border-radius: 8px;
   border: 2px solid #e5e5e5;
-  background: white;
+  background: #fffef9;
   cursor: pointer;
   font-size: 0.9rem;
 }

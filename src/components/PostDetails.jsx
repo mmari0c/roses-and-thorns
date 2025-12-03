@@ -1,7 +1,7 @@
 import { useParams } from "react-router"
 import { useState, useEffect } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faEllipsis } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faEllipsis, faHeart, faComment } from "@fortawesome/free-solid-svg-icons";
 import { supabase } from "../client";
 import { Link } from "react-router";
 import "./PostDetails.css"
@@ -98,6 +98,35 @@ const PostDetails = () => {
       setNewComment("");
     };
 
+    const updateUpvotes = async () => {
+      // Optimistically update UI
+         console.log("Upvoting post ID:", post.id);
+         const newUpvotes = post.upvotes + 1;
+
+         setPost((prev) => ({ ...prev, upvotes: newUpvotes }));
+
+         // Update in database
+         const { data, error } = await supabase
+            .from('posts')
+            .update({ upvotes: newUpvotes })
+            .eq('id', post.id);
+
+         if (error) {
+            console.error("Error updating upvotes:", error);
+         }
+   }
+   
+   const deletePost = async (event) => {
+      event.preventDefault();
+   
+      await supabase
+         .from('posts')
+         .delete()
+         .eq('id', postId);
+   
+      window.location = "/";
+     }
+
    return (
    <div>
       { !post ? (
@@ -115,30 +144,44 @@ const PostDetails = () => {
                         <p className={`${post.type}-header`}>{post.type}</p>
 
                      </div>
-                     {currentUser?.id === post.user_id && (
-                        <>
-                           <button onClick={toggleMenu}>
-                              <FontAwesomeIcon style={{ fontSize: "1.25rem", color: "black" }} icon={faEllipsis} />
+                     {post && currentUser?.id === post.user_id ? (
+                     <>
+                        <button onClick={toggleMenu}>
+                           <FontAwesomeIcon
+                           style={{ fontSize: "1.25rem", color: "black" }}
+                           icon={faEllipsis}
+                           />
+                        </button>
+
+                        {menuOpen && (
+                           <div className="user-dropdown post-dropdown">
+                           <Link
+                              to={`/edit-post/${post.id}`}
+                              state={post}
+                              className="dropdown-button"
+                           >
+                              Edit
+                           </Link>
+
+                           <button onClick={() => deletePost(post.id)}>
+                              Delete
                            </button>
-                           {menuOpen && (
-                              <div className="user-dropdown post-dropdown">
-                                 <button>
-                                    <Link to={`/edit-post/${post.id}`} state={post}>
-                                       Edit
-                                    </Link>
-                                 </button>
-                                 <button>Delete</button>
-                              </div>
-                           )}
-                        </>
+                           </div>
+                        )}
+                     </>
+                     ) : (
+                     <>
+                        <span onClick={updateUpvotes} className="upvotes">
+                           <FontAwesomeIcon icon={faHeart} />
+                           {post.upvotes}
+                        </span>
+                     </>
                      )}
-
-
                   </div>
                   <img src={`${post.image_url}`} alt="Post" />
                   {/* <h3>{post.title}</h3> */}
                   <p className="post-contents">{post.content}</p>
-                  <p>Posted by {post.username}</p>
+                  <p>by {post.username}</p>
                </div>
                <div className="comment-section">
                   <div className="comment-input-wrapper">
