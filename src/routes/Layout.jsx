@@ -38,11 +38,9 @@ function Layout() {
       <div className="layout">
          <header className="app-header">
             <h1 className="app-title">
-               <div>
                   <Link to="/feed" className="brand">
                      <img src={Logo} alt="Roses & Thorns logo" className="brand-logo" />
                   </Link>
-               </div>
                <div>
                   <span className="title-rose">Roses</span>
                   <span className="and-brown"> & </span>
@@ -69,7 +67,7 @@ function Layout() {
 
          </header>
 
-         <main>
+         <main className="paper-shell">
             <Outlet />
          </main>
       </div>

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router'
 import './App.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPencil } from '@fortawesome/free-solid-svg-icons';
 import PostCard from './components/PostCard';
 import { supabase } from './client';
 
@@ -128,7 +130,7 @@ function App() {
         </select>
       </div>
       <Link to={"/create-post"}>
-        <button className="create-post-button">Create Post</button>
+        <button className="create-post-button"><FontAwesomeIcon icon={faPencil} />Create Entry</button>
       </Link>
     </div>
 

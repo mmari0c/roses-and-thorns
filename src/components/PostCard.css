@@ -1,10 +1,13 @@
+
+
 .post-card {
-   border: 1px solid #ddd;
-   border-radius: 12px;
-   margin: 16px;
-   /* background-color: var(--thorn-bg); */
-   width: 20rem;
-   height: 30rem;
+  background: #fffef9;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  width: 20rem;
 }
 
 
@@ -37,8 +40,6 @@
    display: flex;
    align-items: center;        /* vertically center icon + text */
    gap: 0.75rem;               /* space between icon and text */
-   padding-left: 0.5rem;
-   
  }
  
  .user-icon {
@@ -75,6 +76,7 @@
  .user-info {
   display: flex;
   justify-content: space-between;
+  margin: 0 0 1rem 0;
  }
 
  .Thorn-header {

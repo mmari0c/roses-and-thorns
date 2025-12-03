@@ -12,19 +12,22 @@ function LandingPage () {
 
    const navigate = useNavigate();
 
-   useEffect( () => {
-      document.body.classList.add("landing-body");
+useEffect( () => {
+   document.body.classList.add("landing-body");
+   document.documentElement.classList.add("landing-html");
 
-      supabase.auth.getSession().then( ({ data }) => {
-         if (data.session) {
-            navigate("/feed");
-         }
-      });
 
-      return () => {
-        document.body.classList.remove("landing-body");
-      };
-   }, [navigate] );
+   supabase.auth.getSession().then( ({ data }) => {
+      if (data.session) {
+         navigate("/feed");
+      }
+   });
+
+   return () => {
+     document.body.classList.remove("landing-body");
+     document.documentElement.classList.remove("landing-html");
+   };
+}, [navigate] );
 
    const handleChange = (e) => {
       const {name, value} = e.target;

@@ -12,9 +12,11 @@ function SignUp() {
 
    useEffect(() => {
       document.body.classList.add("landing-body");
+      document.documentElement.classList.add("landing-html");
     
       return () => {
         document.body.classList.remove("landing-body");
+         document.documentElement.classList.remove("landing-html");
       };
     }, []);    
 

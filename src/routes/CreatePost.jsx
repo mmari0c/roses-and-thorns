@@ -88,52 +88,82 @@ function CreatePost() {
 
 
   return (
-    <div>
-      <button className="create-post-button" onClick={() => window.history.back()}>
-      &larr; Back to Feed
-      </button>
-    <div className="create-post-container">
+<div className="create-page">
+  <button
+    className="create-post-button back-button"
+    onClick={() => window.history.back()}
+  >
+    &larr; Back to Feed
+  </button>
 
-     <h2>Create a New Post</h2>
-     <form className="create-post-form">
-        <div className="form-item">
-          <label>
-          Type
-        </label>
-        <div className="create-type">
-            <button className={`rose-type ${postData.type === "Rose" ? "active" : ""}`} name="type" type="button" value="Rose" onClick={handleChange}>
-                    Roses
-            </button>
+  <div className="create-post-container entry-paper">
+    <h2 className="entry-header">✦ New Entry</h2>
+    <p className="entry-subtitle">
+      Take a moment to reflect. Share today’s rose or thorn in your journal.
+    </p>
 
-            <button className={`thorn-type ${postData.type === "Thorn" ? "active" : ""}`} name="type" type="button" value="Thorn" onClick={handleChange}>
-                    Thorns
-            </button>
-          </div>
-        </div>
-        <div className="form-item">
-          <label> Title</label>
-          <input type="text" name="title" placeholder="Enter post title" onChange={handleChange} />
-        </div>
-        <div className="form-item">
-          <label>Content</label>
-          <textarea name="content" placeholder="Share your thoughts..." onChange={handleChange}></textarea>
-        </div>
+    <form className="create-post-form" onSubmit={CreatePost}>
       <div className="form-item">
-       <label>Image URL</label>
+        <label>Type</label>
+        <div className="create-type">
+          <button
+            className={`rose-type ${postData.type === "Rose" ? "active" : ""}`}
+            name="type"
+            type="button"
+            value="Rose"
+            onClick={handleChange}
+          >
+            Roses
+          </button>
+
+          <button
+            className={`thorn-type ${postData.type === "Thorn" ? "active" : ""}`}
+            name="type"
+            type="button"
+            value="Thorn"
+            onClick={handleChange}
+          >
+            Thorns
+          </button>
+        </div>
+      </div>
+
+      <div className="form-item">
+        <label>Title</label>
         <input
-            type="file"
-            accept="image/*"
-            onChange={handleFileChange}
+          className="entry-title"
+          type="text"
+          name="title"
+          placeholder="Give your entry a title..."
+          onChange={handleChange}
         />
       </div>
 
+      <div className="form-item">
+        <label>Content</label>
+        <textarea
+          className="entry-textarea"
+          name="content"
+          placeholder="Write your thoughts here, just like a journal page..."
+          onChange={handleChange}
+        ></textarea>
+      </div>
 
-      <button className="edit-button"type="submit" onClick={CreatePost}>Submit Post</button>
-     </form>
-    </div>
+      <div className="form-item">
+        <label>Image</label>
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleFileChange}
+        />
+      </div>
 
-    </div>
-
+      <button className="edit-button submit-entry" type="submit">
+        Submit Entry
+      </button>
+    </form>
+  </div>
+</div>
   );
  }
  
