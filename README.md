@@ -13,7 +13,7 @@ Designed with warm pastel colors and a handwritten aesthetic, the app creates a 
 ## Features
 
 - **Create Posts**  
-  Share a rose or thorn with a title, content, and image upload via Supabase Storage.
+  Share a rose or thorn with a title, content, and image upload via Supabase.
 
 - **Home Feed**  
   Displays all posts with title, timestamp, and support count.
@@ -36,12 +36,6 @@ Designed with warm pastel colors and a handwritten aesthetic, the app creates a 
 
 - **Edit & Delete Posts**  
   The *original* author can update or remove their own posts.
-
-- **Image Uploads**  
-  Upload images from your device, stored securely via Supabase Storage.
-
-- **Responsive UI**  
-  Built with soft pink and green pastels, handwritten Gochi Hand headers, and clean typography for readability.
 
 ---
 
@@ -67,6 +61,5 @@ Roses & Thorns is deployed here:
 - **Supabase** — database, image storage  
 - **JavaScript**  
 - **CSS** — custom pastel theme + typography system  
-- **React Router** — navigation for feed, detail, and edit pages  
 - **Font Awesome** — UI icons  
 - **Figma** — original wireframes, branding, and design planning  
