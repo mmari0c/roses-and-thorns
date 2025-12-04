@@ -1,4 +1,4 @@
-# Roses & Thorns
+# About Roses & Thorns
 
 Many people are tired of what modern social media has become. What was once a place to genuinely connect has shifted into a space that often fuels comparison, competition, and curated perfection. People share the highlights but rarely the hardships, creating an illusion of constant happiness and success. In reality, we all struggle, we all grow, and we all carry both the good and the bad.
 
@@ -47,17 +47,8 @@ Roses & Thorns is still growing. Here are a few upcoming improvements and ideas 
 - **Private & Anonymous Posting Modes**  
   Post privately to yourself or anonymously to the community.
 
-- **Daily Reflection Prompts**  
-  Optional gentle prompts (e.g., “What challenged you today?”) to encourage mindfulness.
-
 - **Streak Tracking & Progress Insights**  
   Track your journaling streak, reflection patterns, and emotional trends over time.
-
-- **Guided Journaling Tools**  
-  Templates for gratitude, self-reflection, and goal tracking.
-
-- **Improved Feed Algorithm**  
-  Show more meaningful content based on your interaction style—not popularity.
 
 - **Mobile-Friendly Enhancements**  
   Better touch interactions and layout improvements for smaller devices.
@@ -65,6 +56,11 @@ Roses & Thorns is still growing. Here are a few upcoming improvements and ideas 
 - **Possible Mobile App Version**  
   Expanding into iOS/Android for an even more accessible reflection experience.
 
+- **UI Redesign**  
+  Lean further into the journaling aesthetic by refining both the UI and UX to feel more cozy, expressive, and personal.
+
+- **Scrapbooking Mode**  
+  Introduce a scrapbook-style journaling experience—similar to Pinterest collages or Canva boards—allowing users to create unique, visual journal entries using images, stickers, textures, and layouts.
 
 ## Figma Design
 
