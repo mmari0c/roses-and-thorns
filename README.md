@@ -20,9 +20,6 @@ I wanted to create an application where people can express themselves honestly, 
   - Filter by roses, thorns, or view all  
   - Sort by latest or most supported  
 
-- **Search**  
-  Search posts by title in real time.
-
 - **Post Detail View**  
   See full post content, image, comments, and the number of supports.
 
