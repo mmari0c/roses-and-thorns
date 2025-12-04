@@ -39,6 +39,35 @@ I wanted to create an application where people can express themselves honestly, 
 
 ---
 
+## Future Plans
+
+Roses & Thorns is still growing. Here are a few upcoming improvements and ideas I’m excited to build:
+
+- **User Accounts & Profiles**  
+  Personalized dashboards, profile customization, and the ability to follow other users.
+
+- **Private & Anonymous Posting Modes**  
+  Post privately to yourself or anonymously to the community.
+
+- **Daily Reflection Prompts**  
+  Optional gentle prompts (e.g., “What challenged you today?”) to encourage mindfulness.
+
+- **Streak Tracking & Progress Insights**  
+  Track your journaling streak, reflection patterns, and emotional trends over time.
+
+- **Guided Journaling Tools**  
+  Templates for gratitude, self-reflection, and goal tracking.
+
+- **Improved Feed Algorithm**  
+  Show more meaningful content based on your interaction style—not popularity.
+
+- **Mobile-Friendly Enhancements**  
+  Better touch interactions and layout improvements for smaller devices.
+
+- **Possible Mobile App Version**  
+  Expanding into iOS/Android for an even more accessible reflection experience.
+
+
 ## Figma Design
 
 View the original UI and layout concepts on Figma:
@@ -57,9 +86,9 @@ Roses & Thorns is deployed here:
 
 ## Technologies Used
 
-- **React** — component architecture, hooks, routing  
-- **Supabase** — database, image storage  
+- **React** 
+- **Supabase**  
 - **JavaScript**  
-- **CSS** — custom pastel theme + typography system  
-- **Font Awesome** — UI icons  
-- **Figma** — original wireframes, branding, and design planning  
+- **CSS** 
+- **Font Awesome**  
+- **Figma**
