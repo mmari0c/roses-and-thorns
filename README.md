@@ -1,4 +1,4 @@
-# About Roses & Thorns
+# Roses & Thorns
 
 Many people are tired of what modern social media has become. What was once a place to genuinely connect has shifted into a space that often fuels comparison, competition, and curated perfection. People share the highlights but rarely the hardships, creating an illusion of constant happiness and success. In reality, we all struggle, we all grow, and we all carry both the good and the bad.
 
