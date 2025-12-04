@@ -35,8 +35,6 @@ I wanted to create an application where people can express themselves honestly, 
 - **Edit & Delete Posts**  
   The *original* author can update or remove their own posts.
 
----
-
 ## Future Plans
 
 Roses & Thorns is still growing. Here are a few upcoming improvements and ideas I’m excited to build:
@@ -68,15 +66,11 @@ View the original UI and layout concepts on Figma:
 
 [Figma Link](https://www.figma.com/design/cecx6CqpcFj4OR62twbMOb/Roses---Thorns?node-id=0-1&t=GtpJlAXitqzorqhJ-1)
 
----
-
 ## Try It Live
 
 Roses & Thorns is deployed here:
 
 [Roses & Thorns](https://rosesandthorns.netlify.app/)
-
----
 
 ## Technologies Used
 
