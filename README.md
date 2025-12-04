@@ -8,8 +8,6 @@ I wanted to create an application where people can express themselves honestly, 
   <img width="500" height="500" alt="roses-logo" src="https://github.com/user-attachments/assets/e16f6771-9668-4908-809e-9ddeba42a041" />
 </p>
 
----
-
 ## Features
 
 - **Create Posts**  
