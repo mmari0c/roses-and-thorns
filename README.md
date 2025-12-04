@@ -55,7 +55,7 @@ Roses & Thorns is still growing. Here are a few upcoming improvements and ideas 
   Lean further into the journaling aesthetic by refining both the UI and UX to feel more cozy, expressive, and personal.
 
 - **Scrapbooking Mode**  
-  Introduce a scrapbook-style journaling experience—similar to Pinterest collages or Canva boards—allowing users to create unique, visual journal entries using images, stickers, textures, and layouts.
+  Introduce a scrapbook-style journaling experience, similar to Pinterest collages or Canva boards, allowing users to create unique, visual journal entries using images, stickers, textures, and layouts.
 
 ## Figma Design
 
