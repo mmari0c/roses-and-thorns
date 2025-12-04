@@ -10,10 +10,7 @@
   color: rgba(255, 255, 255, 0.87);
   /* background: #f3eee7; /* desk / background */;
   background-color: #f5e8d8;
-  background-image: 
-    linear-gradient(90deg, rgba(255,255,255,0.2) 0px, transparent 1px),
-    linear-gradient(rgba(0,0,0,0.02) 0px, transparent 5px);
-  background-size: 4px 4px, 100% 6px;
+
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

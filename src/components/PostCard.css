@@ -121,11 +121,6 @@
   border-radius: 15px;
  }
 
- .comments:hover {
-  cursor: pointer;
-  background-color: var(--thorn-bg);
- }
-
  .post-date {
   font-family: "Nunito", sans-serif;
  }

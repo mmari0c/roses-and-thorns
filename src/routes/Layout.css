@@ -29,7 +29,7 @@
  }
 
  .app-title img {
-  width: 7rem;
+  width: 6rem;
  }
  
  /* Thorns word styling */
@@ -109,7 +109,7 @@
     to bottom,
     #fffdf7 0px,
     #fffdf7 22px,
-    rgba(0, 0, 0, 0.03) 23px
+    rgba(0, 0, 0, 0.10) 23px
   );
   min-height: 70vh;
 }
