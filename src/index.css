@@ -98,3 +98,11 @@ button {
 button:active {
   border-color: white;
 }
+
+input {
+  color: white;
+}
+
+textarea {
+  color: white;
+}
