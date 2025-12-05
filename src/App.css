@@ -79,13 +79,11 @@
 .filter-bar button.rose-active {
   background: var(--rose-bg);  /* soft pastel red background */
   border-color: #d8aaaa;
-  color: #8a4d4d;
 }
 
 .filter-bar button.thorn-active {
   background: var(--thorn-bg);  /* soft pastel green background */
   border-color: #aaddcc;
-  color: #4d8a7a;
 }
 
 .filter-bar button.all-active {
