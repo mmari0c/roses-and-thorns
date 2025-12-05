@@ -46,15 +46,14 @@ const PostCard = ({ post: initialPost }) => {
    return (
 
       <div className={`post-card ${post.type}`}>
-            <img className="tape tape-left" src="src/assets/tape.png" alt="tape" />
-            <img className="tape tape-right" src="src/assets/tape.png" alt="tape" />
+            <img className="tape tape-left" src={tape} alt="tape" />
+            <img className="tape tape-right" src={tape}alt="tape" />
             <div className="user-info">
                <div className="user">
                   <FontAwesomeIcon icon={faUser} className="user-icon"/>
                   <p>{post.username}</p>
                </div>
                <div className="user-header">
-                  {/* <h3>username</h3> */}
                   <p className={`${post.type}-header`}>{post.type}</p>
                </div>
             </div>
@@ -74,7 +73,6 @@ const PostCard = ({ post: initialPost }) => {
          <div className="post-footer">
             <span onClick={updateUpvotes} className="upvotes"><FontAwesomeIcon icon={faHeart} />{post.upvotes}</span>
             <span className="comments"><FontAwesomeIcon icon={faComment} />{post.comments_count}</span>
-            {/* <span className={`post-type ${post.type}`}>{post.type === 'rose' ? '🌹 Rose' : '🌵 Thorn'}</span> */}
          </div>
       </div>
    )

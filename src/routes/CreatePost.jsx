@@ -199,7 +199,7 @@ function CreatePost() {
       </div>
       <div className="edit-buttons">
         <button className="edit-button submit-entry" type="submit">
-          Submit Entry
+          Post Entry
         </button>
       </div>
 

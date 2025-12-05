@@ -6,7 +6,7 @@ import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { supabase } from "../client";
 import { Link } from "react-router";
 import "./PostDetails.css"
-import tape from "../assets/tape.png";
+// import tape from "../assets/tape.png";
 
 const PostDetails = () => {
 

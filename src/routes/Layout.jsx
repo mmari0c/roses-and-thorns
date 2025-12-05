@@ -59,7 +59,7 @@ function Layout() {
                {menuOpen && (
                   <div className="user-dropdown">
                      <Link to={`/profile/${username}`} >
-                        <button>View Profile</button>
+                        <button>View Journal</button>
                      </Link>
                      <button onClick={handleLogout}>Log Out</button>
                   </div>
