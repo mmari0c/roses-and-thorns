@@ -170,5 +170,11 @@ footer .footer-app {
   font-size: 1rem;
 }
 
+@media (max-width: 450px) {
+  .username {
+    display: none;
+  }
+}
+
 
 
