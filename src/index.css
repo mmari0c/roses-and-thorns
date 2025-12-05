@@ -100,9 +100,9 @@ button:active {
 }
 
 input {
-  color: white;
+  background-color: white;
 }
 
 textarea {
-  color: white;
+  background-color: white;
 }
