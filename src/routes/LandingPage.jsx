@@ -64,6 +64,7 @@ useEffect( () => {
       alt="Roses & Thorns logo" 
       className="landing-logo"
    />
+   
    </div>
 
    {/* right side */}
@@ -72,8 +73,8 @@ useEffect( () => {
    <div className="landing-header">
       <h1>Roses & Thorns</h1>
       <p>
-         A reflective social platform where you can share meaningful moments 
-         from your day — the roses and the thorns — and everything in between.
+         A social journaling platform where you can share your wins, your struggles,
+         and the moments in between.
       </p>
    </div>
 

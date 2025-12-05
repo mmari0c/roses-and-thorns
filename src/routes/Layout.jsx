@@ -73,8 +73,14 @@ function Layout() {
          </main>
 
          <footer>
-            <p>Made with <FontAwesomeIcon icon={faHeart} /> by <a target="_blank" className="footer-name" href="https://marionolasco.com/"> Mario Nolasco</a></p>
+            <p class="footer-tagline">every rose has its thorns.</p>
+            <p class="footer-credit">
+               Made with <FontAwesomeIcon icon={faHeart} /> by 
+               <a target="_blank" className="footer-name" href="https://marionolasco.com/"> Mario Nolasco</a>
+            </p>
+            <p class="footer-app">© Roses & Thorns</p>
          </footer>
+
 
       </div>
    )
