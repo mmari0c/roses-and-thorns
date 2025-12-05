@@ -55,6 +55,7 @@
   
 }
 
+
 a {
   font-weight: 500;
   text-decoration: inherit;
@@ -82,6 +83,7 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
   color: black;
+  background-color: #e5e5e5;
 }
 
 /* @media (prefers-color-scheme: light) {
@@ -110,5 +112,9 @@ textarea {
 }
 
 select {
+  color: black;
+}
+
+a {
   color: black;
 }

@@ -30,17 +30,20 @@ const PostCard = ({ post: initialPost }) => {
          setPost((prev) => ({ ...prev, upvotes: newUpvotes }));
 
          // Update in database
-         const { data, error } = await supabase
-            .from('posts')
-            .update({ upvotes: newUpvotes })
-            .eq('id', post.id);
 
+         const { data, error } = await supabase.rpc("increment_post_upvotes", {
+           p_post_id: post.id,
+         });
+       
          if (error) {
-            console.error("Error updating upvotes:", error);
+           console.error("Error incrementing upvotes:", error);
+           // rollback if you want:
+           setPost((prev) => ({ ...prev, upvotes: prev.upvotes - 1 }));
          }
    } 
 
    return (
+
       <div className={`post-card ${post.type}`}>
             {/* <img src={post.user.avatar_url} alt={`${post.user.username}'s avatar`} className="avatar" /> */}
             <div className="user-info">
@@ -52,12 +55,16 @@ const PostCard = ({ post: initialPost }) => {
                   {/* <h3>username</h3> */}
                   <p className={`${post.type}-header`}>{post.type}</p>
                </div>
-            </div>
-            <Link to={`/post/${post.id}`}>
-               <img  src={`${post.image_url}`} alt="" />
-            </Link>
+            </div> 
+            {post.image_url && (
+               <Link to={`/post/${post.id}`}>
+                  <img src={`${post.image_url}`} alt="" />
+               </Link>
+            )} 
             <div className="post-content">
+               <Link to={`/post/${post.id}`}>
                <h2>{post.title}</h2>
+               </Link>
                <p className="post-date">{timeAgo(post.created_at)}</p>
          </div>
          <div className="post-footer">

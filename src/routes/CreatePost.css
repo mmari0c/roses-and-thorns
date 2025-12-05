@@ -13,7 +13,6 @@
  /* Main "journal page" container */
  .create-post-container.entry-paper {
    position: relative;
-   overflow: hidden;
    background: #fffef9;
    border-radius: 12px;
   padding: 1rem 1.25rem;
@@ -69,6 +68,17 @@
    font-size: 1rem;
  }
  
+ .preview-image-container img {
+      /* width: -webkit-fill-available; */
+      max-width: -webkit-fill-available;
+      width: 30rem;
+      /* justify-content: center; */
+      /* align-items: center; */
+      /* height: auto; */
+      max-height: 30rem;
+      object-fit: cover;
+ }
+
  /* Main entry textarea */
  .entry-textarea {
    min-height: 160px;
@@ -84,6 +94,49 @@
    display: inline-flex;
    gap: 0.5rem;
  }
+
+ .type-option {
+  position: relative;
+  display: inline-block;
+  overflow: visible; /* this prevents clipping */
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fffdf7;
+  color: #4b4b4b;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  width: max-content;
+  max-width: 200px;
+  text-align: center;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 9999;
+}
+
+/* Show tooltip on hover or when active */
+.type-option:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.type-option:focus-within .tooltip.rose {
+  background-color: var(--rose-accent);
+}
+
+.type-option:focus-within .tooltip.thorn {
+  background-color: var(--thorn-accent);
+}
+
  
  .rose-type,
  .thorn-type {
@@ -122,9 +175,30 @@
    background-color: var(--thorn-accent);
  }
 
-   .submit-entry:hover {
-      background-color: var(--thorn-strong);
-   }
+  .submit-entry:hover {
+    background-color: var(--thorn-strong);
+  }
+
+ .delete-button {
+    background-color: var(--rose-accent);
+  }
+
+  .delete-button:hover {
+    background-color: var(--rose-strong);
+  }
+
+  .edit-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .error-message {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #d9534f; /* Bootstrap's danger color */
+  }
  
 @media (max-width: 600px) {
    .create-page {

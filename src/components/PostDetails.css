@@ -2,6 +2,10 @@
   background-color: var(--rose-accent);
 }
 
+.post-header {
+  position: relative;
+}
+
 .post-detail {
    display: flex;
    align-items: flex-start;      /* align tops */
@@ -15,6 +19,7 @@
   justify-content: center;
   gap: 0.5rem;
   flex-direction: row-reverse;
+  align-items: center;
  }
 
  .post-date {
@@ -46,16 +51,21 @@
    width: 100%;
    max-height: 30rem;
    object-fit: cover;            /* keeps it from stretching weirdly */
-   margin: 0.75rem 0;
+   margin: 1rem 0 0 0;
  }
 
  .post-info h3 {
-   margin: 0;
+   margin: 1rem 0;
  }
 
  .post-info p {
    margin: 0;
  }
+
+ .post-dropdown {
+  top: 2.5rem;   /* moves menu below the ellipsis icon */
+  right: 0;      /* aligns to the right edge of the post */
+}
  
  /* Right side: comments panel */
  .comment-section {
@@ -201,10 +211,6 @@
   right: 0;           /* Align to the right */
 }
 
-p.post-contents{
-  margin-bottom: 1rem;
-}
-
 /* Query */
 
 @media (max-width: 768px) {
@@ -214,6 +220,10 @@ p.post-contents{
 
   .comment-section {
     max-height: none;
+  }
+
+  .post-info img {
+    max-height: 20rem;
   }
 }
 

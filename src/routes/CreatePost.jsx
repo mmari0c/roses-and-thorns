@@ -1,6 +1,8 @@
 import "./CreatePost.css";
 import { useState } from "react";
 import { supabase } from "../client";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 
 function CreatePost() {
 
@@ -10,6 +12,7 @@ function CreatePost() {
   const [postData, setPostData] = useState({
     type: "", title: "", content: "", image_url: ""
   });
+  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     console.log(e.target.name, e.target.value);
@@ -61,6 +64,12 @@ function CreatePost() {
 
     event.preventDefault();
 
+    if (!postData.type || (postData.type !== "Rose" && postData.type !== "Thorn")){
+  // show an error and stop
+    setError("Please choose Rose or Thorn before submitting.");
+      return;
+    }
+
     const { data: userData, error: userError } = await supabase.auth.getUser();
 
     if (userError || !userData?.user) {
@@ -68,6 +77,13 @@ function CreatePost() {
       // ChANGE TO REDIRECT TO LOGIN AND SHOW MESSAGE
       return;
     }
+
+    if (!postData.type) {
+  // show an error and stop
+    setError("Please choose Rose or Thorn before submitting.");
+      return;
+    }
+
 
     const user = userData.user;
     const userId = user.id;
@@ -103,9 +119,29 @@ function CreatePost() {
     </p>
 
     <form className="create-post-form" onSubmit={CreatePost}>
+
+    <div className="form-item">
+        <label>Image (Optional)</label>
+
+        {
+          postData.image_url && (
+            <div className="preview-image-container">
+              <img src={postData.image_url} alt="Preview" className="preview-image"/>
+            </div>
+          )
+        }
+
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleFileChange}
+        />
+      </div>
+
       <div className="form-item">
         <label>Type</label>
         <div className="create-type">
+        <div className="type-option">
           <button
             className={`rose-type ${postData.type === "Rose" ? "active" : ""}`}
             name="type"
@@ -113,9 +149,12 @@ function CreatePost() {
             value="Rose"
             onClick={handleChange}
           >
-            Roses
+            Rose
           </button>
+          <span className="tooltip rose">A positive moment or highlight from your day.</span>
+        </div>
 
+        <div className="type-option">
           <button
             className={`thorn-type ${postData.type === "Thorn" ? "active" : ""}`}
             name="type"
@@ -123,8 +162,11 @@ function CreatePost() {
             value="Thorn"
             onClick={handleChange}
           >
-            Thorns
+            Thorn
           </button>
+          <span className="tooltip thorn">A challenge or difficult moment you want to reflect on.</span>
+        </div>
+
         </div>
       </div>
 
@@ -136,6 +178,7 @@ function CreatePost() {
           name="title"
           placeholder="Give your entry a title..."
           onChange={handleChange}
+          required
         />
       </div>
 
@@ -146,21 +189,21 @@ function CreatePost() {
           name="content"
           placeholder="Write your thoughts here, just like a journal page..."
           onChange={handleChange}
+          required
         ></textarea>
       </div>
-
-      <div className="form-item">
-        <label>Image</label>
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleFileChange}
-        />
+      <div className="edit-buttons">
+        <button className="edit-button submit-entry" type="submit">
+          Submit Entry
+        </button>
       </div>
 
-      <button className="edit-button submit-entry" type="submit">
-        Submit Entry
-      </button>
+      { error && (
+        <div className="error-message">
+          <FontAwesomeIcon icon={faCircleExclamation}/> 
+          <p className="error-message">{error}</p>
+        </div>
+      )}
     </form>
   </div>
 </div>

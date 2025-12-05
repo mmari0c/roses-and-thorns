@@ -103,21 +103,24 @@ const PostDetails = () => {
          console.log("Upvoting post ID:", post.id);
          const newUpvotes = post.upvotes + 1;
 
+         // Update in database
          setPost((prev) => ({ ...prev, upvotes: newUpvotes }));
 
          // Update in database
-         const { data, error } = await supabase
-            .from('posts')
-            .update({ upvotes: newUpvotes })
-            .eq('id', post.id);
 
+         const { data, error } = await supabase.rpc("increment_post_upvotes", {
+           p_post_id: post.id,
+         });
+       
          if (error) {
-            console.error("Error updating upvotes:", error);
+           console.error("Error incrementing upvotes:", error);
+           // rollback if you want:
+           setPost((prev) => ({ ...prev, upvotes: prev.upvotes - 1 }));
          }
    }
    
-   const deletePost = async (event) => {
-      event.preventDefault();
+   const deletePost = async () => {
+      // event.preventDefault();
    
       await supabase
          .from('posts')
@@ -140,9 +143,8 @@ const PostDetails = () => {
                <div className="post-info">
                   <div className="post-header">
                      <div className="post-detail-header">
-                        <h3>{post.title}</h3>
+                        <p>by {post.username}</p>
                         <p className={`${post.type}-header`}>{post.type}</p>
-
                      </div>
                      {post && currentUser?.id === post.user_id ? (
                      <>
@@ -154,7 +156,7 @@ const PostDetails = () => {
                         </button>
 
                         {menuOpen && (
-                           <div className="user-dropdown post-dropdown">
+                        <div className="user-dropdown post-dropdown">
                            <Link
                               to={`/edit-post/${post.id}`}
                               state={post}
@@ -163,11 +165,12 @@ const PostDetails = () => {
                               Edit
                            </Link>
 
-                           <button onClick={() => deletePost(post.id)}>
-                              Delete
+                           <button onClick={() => deletePost()}>
+                              Trash
                            </button>
-                           </div>
+                        </div>
                         )}
+
                      </>
                      ) : (
                      <>
@@ -178,10 +181,11 @@ const PostDetails = () => {
                      </>
                      )}
                   </div>
-                  <img src={`${post.image_url}`} alt="Post" />
-                  {/* <h3>{post.title}</h3> */}
+                  {post.image_url && (
+                     <img src={`${post.image_url}`} alt="" />
+                  )} 
+                  <h3>{post.title}</h3>
                   <p className="post-contents">{post.content}</p>
-                  <p>by {post.username}</p>
                </div>
                <div className="comment-section">
                   <div className="comment-input-wrapper">

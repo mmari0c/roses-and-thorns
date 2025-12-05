@@ -8,6 +8,7 @@
   border: 1px solid rgba(0, 0, 0, 0.04);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
   width: 20rem;
+  max-height: fit-content;
 }
 
 .post-card img {
@@ -121,6 +122,12 @@
 
  .post-date {
   font-family: "Nunito", sans-serif;
+ }
+
+ @media screen and (max-width: 600px) {
+  .post-card {
+    width: -webkit-fill-available;
+  }
  }
 
 

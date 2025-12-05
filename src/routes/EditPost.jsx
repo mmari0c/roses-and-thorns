@@ -2,6 +2,8 @@ import "./CreatePost.css";
 import { useState, useEffect } from "react";
 import { supabase } from "../client";
 import { useParams, useLocation } from "react-router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 
 function EditPost() {
 
@@ -14,6 +16,7 @@ function EditPost() {
    content: "",
    image_url: ""
  });
+  const [error, setError] = useState(null);
  
  useEffect(() => {
    // 1. If post was passed through route state
@@ -127,50 +130,116 @@ function EditPost() {
 
 
   return (
-    <div>
-      <button className="create-post-button" onClick={() => window.history.back()}>
-      &larr; Back to Post
-      </button>
-    <div className="create-post-container">
+<div className="create-page">
+  <button
+    className="create-post-button back-button"
+    onClick={() => window.history.back()}
+  >
+    &larr; Back to Post
+  </button>
 
-     <h2>Edit Post</h2>
-     <form className="create-post-form">
-        <div className="form-item">
-          <label>
-          Type
-        </label>
+  <div className="create-post-container entry-paper">
+    <h2 className="entry-header">✦ Edit Entry</h2>
+    <p className="entry-subtitle">
+      Update your reflection. Tweak your rose or thorn, or add more context.
+    </p>
+
+    <form className="create-post-form" onSubmit={updatePost}>
+      <div className="form-item">
+        <label>Type</label>
         <div className="create-type">
-            <button className={`rose-type ${postData.type === "Rose" ? "active" : ""}`} name="type" type="button" value="Rose" onClick={handleChange}>
-                    Roses
+          <div className="type-option">
+            <button
+              className={`rose-type ${postData.type === "Rose" ? "active" : ""}`}
+              name="type"
+              type="button"
+              value="Rose"
+              onClick={handleChange}
+            >
+              Rose
             </button>
+            <span className="tooltip rose">
+              A positive moment or highlight from your day.
+            </span>
+          </div>
 
-            <button className={`thorn-type ${postData.type === "Thorn" ? "active" : ""}`} name="type" type="button" value="Thorn" onClick={handleChange}>
-                    Thorns
+          <div className="type-option">
+            <button
+              className={`thorn-type ${postData.type === "Thorn" ? "active" : ""}`}
+              name="type"
+              type="button"
+              value="Thorn"
+              onClick={handleChange}
+            >
+              Thorn
             </button>
+            <span className="tooltip thorn">
+              A challenge or difficult moment you want to reflect on.
+            </span>
           </div>
         </div>
-        <div className="form-item">
-          <label> Title</label>
-          <input value={`${postData.title}`} type="text" name="title" placeholder="Enter post title" onChange={handleChange} />
-        </div>
-        <div className="form-item">
-          <label>Content</label>
-          <textarea value={`${postData.content}`} name="content" placeholder="Share your thoughts..." onChange={handleChange}></textarea>
-        </div>
+      </div>
+
       <div className="form-item">
-       <label>Image URL</label>
+      {
+          postData.image_url && (
+            <div className="preview-image-container">
+              <img src={postData.image_url} alt="Preview" className="preview-image"/>
+            </div>
+          )
+        }
+        <label>Image (Optional)</label>
         <input
-            type="file"
-            accept="image/*"
-            onChange={handleFileChange}
+          type="file"
+          accept="image/*"
+          onChange={handleFileChange}
         />
       </div>
-      <button className="edit-button" type="submit" onClick={updatePost}>Edit Post</button>
-      <button className="delete-button" type="button" onClick={deletePost}>Delete Post</button>
-     </form>
-    </div>
 
-    </div>
+      <div className="form-item">
+        <label>Title</label>
+        <input
+          className="entry-title"
+          type="text"
+          name="title"
+          placeholder="Give your entry a title..."
+          value={postData.title}
+          onChange={handleChange}
+          required
+        />
+      </div>
+
+      <div className="form-item">
+        <label>Content</label>
+        <textarea
+          className="entry-textarea"
+          name="content"
+          placeholder="Write your thoughts here, just like a journal page..."
+          value={postData.content}
+          onChange={handleChange}
+          required
+        ></textarea>
+      </div>
+
+      <div className="edit-buttons">
+        <button className="edit-button submit-entry" type="submit">
+          Save Changes
+        </button>
+        <button className="submit-entry delete-button" onClick={deletePost}>
+          Trash Entry
+        </button>
+      </div>
+
+      {error && (
+        <div className="error-message">
+          <FontAwesomeIcon icon={faCircleExclamation} />
+          <p className="error-message">{error}</p>
+        </div>
+      )}
+    </form>
+  </div>
+</div>
+
 
   );
  }
