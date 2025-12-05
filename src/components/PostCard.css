@@ -9,9 +9,55 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
   width: 20rem;
   max-height: fit-content;
+  position: relative; /* for positioning tape */
+  overflow: visible; /* IMPORTANT so tape sticks out */
 }
 
-.post-card img {
+.tape {
+  position: absolute;
+  width: 70px;
+  opacity: 0.9;
+  transform: rotate(-15deg);
+  pointer-events: none; /* so it doesn't block clicks */
+}
+
+/* Left corner tape */
+.tape-left {
+  top: -30px;
+  left: -25px;
+}
+
+/* Right corner tape */
+.tape-right {
+  bottom: -30px;
+  right: -25px;
+  transform: rotate(-20deg);
+}
+
+.tape-top-right {
+  top: -30px;
+  right: -20px;
+  transform: rotate(25deg);
+}
+
+.tape-bottom-left {
+  bottom: -30px;
+  left: -20px;
+  transform: rotate(-25deg);
+}
+
+.tape {
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.15));
+}
+
+.tape-center {
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+}
+
+
+.post-image img {
   width: 100%;
   height: 280px;
   object-fit: cover;

@@ -5,6 +5,7 @@ import { faUser, faComment } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { supabase } from "../client";
+import tape from "../assets/tape.png";
 
 const PostCard = ({ post: initialPost }) => {
 
@@ -45,7 +46,8 @@ const PostCard = ({ post: initialPost }) => {
    return (
 
       <div className={`post-card ${post.type}`}>
-            {/* <img src={post.user.avatar_url} alt={`${post.user.username}'s avatar`} className="avatar" /> */}
+            <img className="tape tape-left" src="src/assets/tape.png" alt="tape" />
+            <img className="tape tape-right" src="src/assets/tape.png" alt="tape" />
             <div className="user-info">
                <div className="user">
                   <FontAwesomeIcon icon={faUser} className="user-icon"/>
@@ -55,12 +57,14 @@ const PostCard = ({ post: initialPost }) => {
                   {/* <h3>username</h3> */}
                   <p className={`${post.type}-header`}>{post.type}</p>
                </div>
-            </div> 
-            {post.image_url && (
-               <Link to={`/post/${post.id}`}>
-                  <img src={`${post.image_url}`} alt="" />
-               </Link>
-            )} 
+            </div>
+            <div className="post-image">
+               {post.image_url && (
+                  <Link to={`/post/${post.id}`}>
+                     <img src={`${post.image_url}`} alt="" />
+                  </Link>
+               )} 
+            </div>
             <div className="post-content">
                <Link to={`/post/${post.id}`}>
                <h2>{post.title}</h2>

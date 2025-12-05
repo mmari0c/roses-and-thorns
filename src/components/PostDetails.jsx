@@ -1,10 +1,12 @@
 import { useParams } from "react-router"
 import { useState, useEffect } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faEllipsis, faHeart, faComment } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faEllipsis, faComment } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { supabase } from "../client";
 import { Link } from "react-router";
 import "./PostDetails.css"
+import tape from "../assets/tape.png";
 
 const PostDetails = () => {
 
@@ -135,11 +137,13 @@ const PostDetails = () => {
       { !post ? (
          <div>Loading post details...</div>
       ) : (
+         
          <div className="post-details-container">
             <button className="create-post-button" onClick={() => window.history.back()}>
                &larr; Back to Feed
             </button>
             <div className="post-detail">
+
                <div className="post-info">
                   <div className="post-header">
                      <div className="post-detail-header">
@@ -196,7 +200,10 @@ const PostDetails = () => {
                      />
                      <button type="submit" onClick={CreateComment}>Submit</button>
                   </div>
-                  <h3>Comments</h3>
+                  <div className="comments-icon">
+                     <h3>Comments</h3>
+                     <span className="comments"><FontAwesomeIcon icon={faComment} />{post.comments_count}</span>
+                  </div>
                   {/* comments list */}
                   { comments && comments.length > 0 ? (
                      <div>

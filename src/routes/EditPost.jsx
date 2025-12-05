@@ -4,6 +4,7 @@ import { supabase } from "../client";
 import { useParams, useLocation } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
+import tape from "../assets/tape.png";
 
 function EditPost() {
 
@@ -139,6 +140,8 @@ function EditPost() {
   </button>
 
   <div className="create-post-container entry-paper">
+    {/* <img class="tape tape-left" src={tape} alt="tape" />
+    <img class="tape tape-right" src={tape} alt="tape" /> */}
     <h2 className="entry-header">✦ Edit Entry</h2>
     <p className="entry-subtitle">
       Update your reflection. Tweak your rose or thorn, or add more context.

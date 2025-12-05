@@ -3,6 +3,8 @@ import { useState } from "react";
 import { supabase } from "../client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
+import tape from "../assets/tape.png";
+
 
 function CreatePost() {
 
@@ -113,6 +115,9 @@ function CreatePost() {
   </button>
 
   <div className="create-post-container entry-paper">
+  {/* <img className="tape tape-left" src={tape} alt="tape" />
+  <img className="tape tape-right" src={tape} alt="tape" /> */}
+  <img classNamesrc={tape} alt="" />
     <h2 className="entry-header">✦ New Entry</h2>
     <p className="entry-subtitle">
       Take a moment to reflect. Share today’s rose or thorn in your journal.

@@ -112,6 +112,7 @@
     rgba(0, 0, 0, 0.10) 23px
   );
   min-height: 70vh;
+  position: relative;
 }
 
 /* footer {
