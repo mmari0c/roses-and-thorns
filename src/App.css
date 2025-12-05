@@ -128,4 +128,8 @@ textarea {
   .feed-header a {
     text-align: center;
   }
+
+  .paper-shell {
+    padding: 1rem;
+  }
 }

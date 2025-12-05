@@ -124,5 +124,9 @@
       background-color: var(--thorn-strong);
    }
  
- 
+@media (max-width: 600px) {
+   .create-page {
+     padding: 0;
+   }
+ }
  
