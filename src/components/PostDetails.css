@@ -29,16 +29,12 @@
  /* Left side: post */
  .post-info {
    flex: 3;                      /* take more space than comments */
-   /* padding: 1.25rem;
-   border: 2px solid #e5e5e5;
-   background: #ffffff;
-   border-radius: 12px; */
-
    background: #fffef9;
    border-radius: 12px;
    padding: 1rem 1.25rem;
    border: 1px solid rgba(0, 0, 0, 0.04);
    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+   width: -webkit-fill-available;
  }
 
  .post-info .post-header {
