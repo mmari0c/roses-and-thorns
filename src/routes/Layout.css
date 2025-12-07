@@ -97,7 +97,7 @@
 }
 
 .paper-shell {
-  max-width: webkit-fill-available;
+  max-width: -webkit-fill-available;
   width: 75%;
   margin: 2rem auto;
   padding: 2rem 2rem;
