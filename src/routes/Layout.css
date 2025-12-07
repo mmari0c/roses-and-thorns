@@ -116,13 +116,6 @@
   position: relative;
 }
 
-.paper-container, 
-.entry-paper, 
-.feed-container {
-  max-width: -webkit-fill-available;
-  margin: 0 auto;
-}
-
 
 /* footer {
   border-top: 2px dashed rgba(0,0,0,0.1);

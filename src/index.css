@@ -60,10 +60,9 @@
   
 }
 
-/* html, body {
-  overflow-x: hidden;
-  max-width: 100%;
-} */
+html, body {
+  max-width: -webkit-fill-available;
+}
 
 
 
