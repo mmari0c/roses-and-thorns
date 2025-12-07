@@ -221,7 +221,7 @@ const PostDetails = () => {
                            ))}
                         </ul>
                      </div>
-                  ) : <p>No comments yet. Be the first to comment!</p> }
+                  ) : <p style={{ color: "#555" }}>No comments yet. Be the first to comment!</p> }
 
                </div>
             </div>
