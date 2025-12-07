@@ -47,8 +47,7 @@ function SignUp() {
          setError(error.message);
          return;
       }
-
-      navigate("/feed");
+      setError("Verify your email to complete sign up!");
    }
 
   return (
@@ -71,7 +70,7 @@ function SignUp() {
 
       {error && <p className="error-text">{error}</p>}
 
-      <p className="signup-text">
+      <p className="signup-text sign-up">
          Already have an account? <Link to="/">Log In</Link>
       </p>
       </div>

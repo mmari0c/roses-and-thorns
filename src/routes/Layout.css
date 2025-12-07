@@ -171,6 +171,10 @@ footer .footer-app {
   font-size: 1rem;
 }
 
+.signup-text.sign-up {
+  margin: 0;
+}
+
 @media (max-width: 450px) {
   .username {
     display: none;
