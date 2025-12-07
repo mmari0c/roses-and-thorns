@@ -3,7 +3,7 @@
   padding: 0rem 1rem;
   width: 100%;
   max-width: none;
-  
+
 }
 
 .feed-container {
@@ -144,7 +144,6 @@ textarea {
     position: fixed;
     z-index: 9999;
     bottom: 0;
-    box-sizing: border-box; 
     left: 0; /* Align the button to the left edge of the container */
     border-radius: 0%;
   }
