@@ -56,12 +56,25 @@
  }
  
  /* Title input styled like a journal line */
- .entry-title {
-   padding: 0.55rem 0.75rem;
-   border-radius: 8px;
-   border: 2px solid #e5e5e5;
-   font-size: 1rem;
+ .form-content {
+  display: flex;
+  flex-direction: column;
  }
+
+ .entry-title {
+   font-size: 1.25rem;
+   border-bottom-left-radius: 0;
+   border-bottom-right-radius: 0;
+   border-bottom: none;
+   font-family: "Gochi Hand", cursive;
+ }
+
+ .entry-textarea {
+  min-height: 160px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: none;
+}
  
  .preview-image-container img {
       /* width: -webkit-fill-available; */
@@ -74,15 +87,7 @@
       object-fit: cover;
  }
 
- /* Main entry textarea */
- .entry-textarea {
-   min-height: 160px;
-   padding: 1rem;
-   border-radius: 8px;
-   border: 2px solid #e5e5e5;
-   resize: vertical;
-   outline: none;
- }
+ /* Main entry textarea *
  
  /* Type buttons row */
  .create-type {

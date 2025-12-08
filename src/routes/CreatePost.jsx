@@ -118,24 +118,6 @@ function CreatePost() {
 
     <form className="create-post-form" onSubmit={CreatePost}>
 
-    <div className="form-item">
-        <label>Image (Optional)</label>
-
-        {
-          postData.image_url && (
-            <div className="preview-image-container">
-              <img src={postData.image_url} alt="Preview" className="preview-image"/>
-            </div>
-          )
-        }
-
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleFileChange}
-        />
-      </div>
-
       <div className="form-item">
         <label>Type</label>
         <div className="create-type">
@@ -169,32 +151,51 @@ function CreatePost() {
       </div>
 
       <div className="form-item">
-        <label>Title</label>
+        <label>Image (Optional)</label>
+
+        {
+          postData.image_url && (
+            <div className="preview-image-container">
+              <img src={postData.image_url} alt="Preview" className="preview-image"/>
+            </div>
+          )
+        }
+
         <input
-          className="entry-title"
-          type="text"
-          name="title"
-          placeholder="Give your entry a title..."
-          onChange={handleChange}
-          required
+          type="file"
+          accept="image/*"
+          onChange={handleFileChange}
         />
       </div>
 
       <div className="form-item">
         <label>Content</label>
-        <textarea
-          className="entry-textarea"
-          name="content"
-          placeholder="Write your thoughts here, just like a journal page..."
-          onChange={handleChange}
-          required
-        ></textarea>
+        <div className="form-content">
+          <input
+            className="entry-title"
+            type="text"
+            name="title"
+            placeholder="Title"
+            onChange={handleChange}
+            required
+          />
+          <textarea
+            className="entry-textarea"
+            name="content"
+            placeholder="Write your thoughts here, just like a journal page..."
+            onChange={handleChange}
+            required
+          ></textarea>
+        </div>
       </div>
+
       <div className="edit-buttons">
         <button className="edit-button submit-entry" type="submit">
           Post Entry
         </button>
       </div>
+
+      
 
       { error && (
         <div className="error-message">

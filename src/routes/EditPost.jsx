@@ -200,28 +200,26 @@ function EditPost() {
       </div>
 
       <div className="form-item">
-        <label>Title</label>
-        <input
-          className="entry-title"
-          type="text"
-          name="title"
-          placeholder="Give your entry a title..."
-          value={postData.title}
-          onChange={handleChange}
-          required
-        />
-      </div>
-
-      <div className="form-item">
         <label>Content</label>
-        <textarea
-          className="entry-textarea"
-          name="content"
-          placeholder="Write your thoughts here, just like a journal page..."
-          value={postData.content}
-          onChange={handleChange}
-          required
-        ></textarea>
+        <div className="form-content">
+          <input
+            className="entry-title"
+            type="text"
+            name="title"
+            placeholder="Title"
+            onChange={handleChange}
+            required
+            value={postData.title}
+          />
+          <textarea
+            className="entry-textarea"
+            name="content"
+            placeholder="Write your thoughts here, just like a journal page..."
+            onChange={handleChange}
+            value={postData.content}
+            required
+          ></textarea>
+        </div>
       </div>
 
       <div className="edit-buttons">

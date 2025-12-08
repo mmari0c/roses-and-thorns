@@ -117,18 +117,12 @@ button:active {
 input {
   background-color: white;
   color: black;
-  padding: 0.55rem 0.75rem;
+  padding: 0.55rem 1rem;
   border-radius: 8px;
   border: 2px solid #e5e5e5;
 }
 
 input:focus, select:focus {
-  border: 2px solid var(--rose-strong); /* purple border */
-  outline: none; /* remove default outline if you want */
-}
-
-textarea:focus {
-  border: 2px solid var(--thorn-strong); /* purple border */
   outline: none; /* remove default outline if you want */
 }
 
@@ -136,6 +130,11 @@ textarea:focus {
 textarea {
   background-color: white;
   color: black;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid #e5e5e5;
+  resize: vertical;
+  outline: none;
 }
 
 select {
