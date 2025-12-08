@@ -1,8 +1,8 @@
 import "./CreatePost.css";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { supabase } from "../client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
+import { faCircleExclamation, faImage } from "@fortawesome/free-solid-svg-icons";
 import tape from "../assets/tape.png";
 
 
@@ -15,6 +15,7 @@ function CreatePost() {
     type: "", title: "", content: "", image_url: ""
   });
   const [error, setError] = useState(null);
+  const fileInputRef = useRef(null);
 
   const handleChange = (e) => {
     console.log(e.target.name, e.target.value);
@@ -151,19 +152,32 @@ function CreatePost() {
       </div>
 
       <div className="form-item">
-      {
-          postData.image_url && (
-            <div className="preview-image-container">
-              <img src={postData.image_url} alt="Preview" className="preview-image"/>
-            </div>
-          )
-        }
-        <label>Image (Optional)</label>
+        <label className="image-upload-label">Image (Optional)</label>
+
+        {/* Hidden file input */}
         <input
           type="file"
           accept="image/*"
+          ref={fileInputRef}
           onChange={handleFileChange}
+          style={{ display: "none" }}
         />
+
+        {/* Clickable icon OR preview image */}
+        <div
+          className="upload-trigger"
+          onClick={() => fileInputRef.current.click()}
+        >
+          {postData.image_url ? (
+            <img
+              src={postData.image_url}
+              alt="Preview"
+              className="preview-image"
+            />
+          ) : (
+            <FontAwesomeIcon icon={faImage} className="upload-icon" />
+          )}
+        </div>
       </div>
 
       <div className="form-item">
