@@ -64,13 +64,15 @@ const PostCard = ({ post: initialPost }) => {
                   </Link>
                )} 
             </div>
+            <Link to={`/post/${post.id}`}>
             <div className="post-content">
-               <Link to={`/post/${post.id}`}>
+               
                <h2>{post.title}</h2>
-               </Link>
                <p>{post.content}</p>
                <p className="post-date">{timeAgo(post.created_at)}</p>
-         </div>
+               
+            </div>
+            </Link>
          <div className="post-footer">
             <span onClick={updateUpvotes} className="upvotes"><FontAwesomeIcon icon={faHeart} />{post.upvotes}</span>
             <span className="comments"><FontAwesomeIcon icon={faComment} />{post.comments_count}</span>
