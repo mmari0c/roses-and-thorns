@@ -97,6 +97,7 @@ function App() {
 
   return (
   <div className="feed-container">
+    <h2>Community Journal</h2>
     <div className="feed-header">
     {/* <input  onChange={handleSearch}placeholder='Search post...'></input> */}
       <div className='settings'>

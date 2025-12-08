@@ -15,6 +15,14 @@
   break-inside: avoid;        /* don’t split cards between columns */
 }
 
+.post-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 
 .tape {
   position: absolute;
@@ -70,12 +78,6 @@
 .post-content {
    padding: 0.5rem;
  }
-
-.post-content h2 {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
 
 .post-card .user-info {
    display: flex;

@@ -67,7 +67,7 @@ const PostCard = ({ post: initialPost }) => {
             <Link to={`/post/${post.id}`}>
             <div className="post-content">
                
-               <h2>{post.title}</h2>
+               <h3>{post.title}</h3>
                <p>{post.content}</p>
                <p className="post-date">{timeAgo(post.created_at)}</p>
                

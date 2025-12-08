@@ -87,7 +87,7 @@ function Profile () {
   return (
     <div>
       <div className="profile-header">
-        <h2>Your Journal</h2>
+        <h2>My Journal</h2>
         <label>
           <input
             type="file"
