@@ -164,6 +164,24 @@
  .thorn-type:hover {
    transform: translateY(-1px);
  }
+
+ .preview-image {
+  max-width: -webkit-fill-available;
+  object-fit: scale-down;
+  max-height: 80vh;
+ }
+
+ .preview-image:hover {
+  cursor: pointer;
+ }
+
+ .upload-icon {
+    height: 1.2rem;
+ }
+
+ .upload-icon:hover {
+    cursor: pointer;
+ }
  
  /* Submit button a bit softer */
  .submit-entry {
@@ -189,8 +207,8 @@
 
   .edit-buttons {
     display: flex;
+    flex-direction: row-reverse;
     gap: 1rem;
-    margin-bottom: 1rem;
   }
   
   .error-message {

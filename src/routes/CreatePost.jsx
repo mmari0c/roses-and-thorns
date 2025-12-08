@@ -109,9 +109,6 @@ function CreatePost() {
   return (
 <div className="create-page">
   <div className="create-post-container entry-paper">
-  {/* <img className="tape tape-left" src={tape} alt="tape" />
-  <img className="tape tape-right" src={tape} alt="tape" /> */}
-  <img classNamesrc={tape} alt="" />
     <h2 className="entry-header">✦ New Entry</h2>
     <p className="entry-subtitle">
       Take a moment to reflect. Share today’s rose or thorn in your journal.
@@ -151,37 +148,24 @@ function CreatePost() {
         </div>
       </div>
 
-      <div className="form-item">
-        <label className="image-upload-label">Image (Optional)</label>
 
-        {/* Hidden file input */}
-        <input
-          type="file"
-          accept="image/*"
-          ref={fileInputRef}
-          onChange={handleFileChange}
-          style={{ display: "none" }}
-        />
-
-        {/* Clickable icon OR preview image */}
+      {postData.image_url ? (
         <div
           className="upload-trigger"
           onClick={() => fileInputRef.current.click()}
         >
-          {postData.image_url ? (
-            <img
-              src={postData.image_url}
-              alt="Preview"
-              className="preview-image"
-            />
-          ) : (
-            <FontAwesomeIcon icon={faImage} className="upload-icon" />
-          )}
+          <img
+            src={postData.image_url}
+            alt="Preview"
+            className="preview-image"
+            style={{pointer: "cursor"}}
+          />
         </div>
-      </div>
+        ) : ( null
+      )}
+
 
       <div className="form-item">
-        <label>Content</label>
         <div className="form-content">
           <input
             className="entry-title"
@@ -198,6 +182,29 @@ function CreatePost() {
             onChange={handleChange}
             required
           ></textarea>
+        </div>
+      </div>
+
+      <div className="form-item">
+        {/* Hidden file input */}
+        <input
+          type="file"
+          accept="image/*"
+          ref={fileInputRef}
+          onChange={handleFileChange}
+          style={{ display: "none" }}
+        />
+
+        {/* Clickable icon OR preview image */}
+        <div
+          className="upload-trigger"
+          onClick={() => fileInputRef.current.click()}
+        >
+          {postData.image_url ? (
+            null
+          ) : (
+            <FontAwesomeIcon icon={faImage} className="upload-icon" />
+          )}
         </div>
       </div>
 

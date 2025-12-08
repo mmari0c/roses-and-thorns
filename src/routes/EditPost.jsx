@@ -1,15 +1,16 @@
 import "./CreatePost.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { supabase } from "../client";
 import { useParams, useLocation } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
+import { faCircleExclamation, faImage } from "@fortawesome/free-solid-svg-icons";
 import tape from "../assets/tape.png";
 
 function EditPost() {
 
   const {postId} = useParams();
   const { state } = useLocation();
+  const fileInputRef = useRef(null);
 
   const [postData, setPostData] = useState({
    type: "",
@@ -183,24 +184,22 @@ function EditPost() {
         </div>
       </div>
 
-      <div className="form-item">
-      {
-          postData.image_url && (
-            <div className="preview-image-container">
-              <img src={postData.image_url} alt="Preview" className="preview-image"/>
-            </div>
-          )
-        }
-        <label>Image (Optional)</label>
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleFileChange}
-        />
-      </div>
+      {postData.image_url ? (
+        <div
+          className="upload-trigger"
+          onClick={() => fileInputRef.current.click()}
+        >
+          <img
+            src={postData.image_url}
+            alt="Preview"
+            className="preview-image"
+            style={{pointer: "cursor"}}
+          />
+        </div>
+        ) : ( null
+      )}
 
       <div className="form-item">
-        <label>Content</label>
         <div className="form-content">
           <input
             className="entry-title"
@@ -222,12 +221,36 @@ function EditPost() {
         </div>
       </div>
 
+      <div className="form-item">
+        {/* Hidden file input */}
+        <input
+          type="file"
+          accept="image/*"
+          ref={fileInputRef}
+          onChange={handleFileChange}
+          style={{ display: "none" }}
+        />
+
+        {/* Clickable icon OR preview image */}
+        <div
+          className="upload-trigger"
+          onClick={() => fileInputRef.current.click()}
+        >
+          {postData.image_url ? (
+            null
+          ) : (
+            <FontAwesomeIcon icon={faImage} className="upload-icon" />
+          )}
+        </div>
+      </div>
+      
+
       <div className="edit-buttons">
-        <button className="edit-button submit-entry" type="submit">
-          Save Changes
-        </button>
         <button className="submit-entry delete-button" onClick={deletePost}>
           Trash Entry
+        </button>
+        <button className="edit-button submit-entry" type="submit">
+          Save Changes
         </button>
       </div>
 
