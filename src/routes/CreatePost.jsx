@@ -107,13 +107,6 @@ function CreatePost() {
 
   return (
 <div className="create-page">
-  <button
-    className="create-post-button back-button"
-    onClick={() => window.history.back()}
-  >
-    &larr; Back to Feed
-  </button>
-
   <div className="create-post-container entry-paper">
   {/* <img className="tape tape-left" src={tape} alt="tape" />
   <img className="tape tape-right" src={tape} alt="tape" /> */}

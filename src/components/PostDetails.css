@@ -112,6 +112,10 @@
    white-space: normal;
    word-wrap: break-word;
  }
+
+ .comment-input-wrapper textarea:focus {
+  border: 2px solid var(--thorn-strong);
+ }
  
  /* Submit button inside textarea container */
  .comment-input-wrapper button {

@@ -11,8 +11,6 @@
 }
 
 .feed-header {
-  display: flex;
-  justify-content: space-between; /* aligns button with cards */
   margin-bottom: 2rem;
 }
 
@@ -129,22 +127,8 @@ textarea {
     text-align: center;
   }
 
-  .paper-shell {
-    padding: 1rem;
-  }
-
   .feed {
     gap: 1rem;
-  }
-
-  .feed-header .create-post-button {
-    width: 100%;
-    justify-content: center;
-    position: fixed;
-    z-index: 9999;
-    bottom: 0;
-    left: 0; /* Align the button to the left edge of the container */
-    border-radius: 0%;
   }
 
 }

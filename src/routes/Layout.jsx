@@ -1,7 +1,7 @@
 import { Outlet, useNavigate, Link } from "react-router"
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faHeart } from "@fortawesome/free-solid-svg-icons"
+import { faHeart, faPencil } from "@fortawesome/free-solid-svg-icons"
 import { supabase } from "../client";
 import { faCircleUser } from "@fortawesome/free-regular-svg-icons"
 
@@ -38,26 +38,27 @@ function Layout() {
    return (
       <div className="layout">
          <header className="app-header">
-            <h1 className="app-title">
-                  <Link to="/feed" className="brand">
-                     <img src={Logo} alt="Roses & Thorns logo" className="brand-logo" />
-                  </Link>
-               <div>
-                  <span className="title-rose">Roses</span>
-                  <span className="and-brown"> & </span>
-                  <br />
-                  <span className="title-thorn">Thorns</span>
-               </div>
-            </h1>
+            <Link to="/feed" className="brand">
+               <h1 className="app-title">
+                  <img src={Logo} alt="Roses & Thorns logo" className="brand-logo" />
+                  <div className="title">
+                     <span className="title-rose">Roses & </span>
+                     <span className="title-thorn">Thorns</span>
+                  </div>
+               </h1>
+            </Link>
 
             <nav className="app-nav">
+               <Link to={"/create-post"}>
+               <button className="create-post-button"><FontAwesomeIcon icon={faPencil} />Write Entry</button>
+               </Link>
                <div className="user-menu-wrapper" onClick={toggleMenu}>
-                  <span className="username">{username}</span>
                   <FontAwesomeIcon icon={faCircleUser} size="2x" />
                </div>
 
                {menuOpen && (
                   <div className="user-dropdown">
+                     <span>{username}</span>
                      <Link to={`/profile/${username}`} >
                         <button>View Journal</button>
                      </Link>
