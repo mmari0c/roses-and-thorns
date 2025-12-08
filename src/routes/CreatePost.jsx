@@ -151,16 +151,14 @@ function CreatePost() {
       </div>
 
       <div className="form-item">
-        <label>Image (Optional)</label>
-
-        {
+      {
           postData.image_url && (
             <div className="preview-image-container">
               <img src={postData.image_url} alt="Preview" className="preview-image"/>
             </div>
           )
         }
-
+        <label>Image (Optional)</label>
         <input
           type="file"
           accept="image/*"
