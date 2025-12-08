@@ -23,16 +23,13 @@
  
  /* header + subtitle */
  .entry-header {
-   font-family: var(--font-title, "Gochi Hand", cursive);
-   font-size: 2.2rem;
    margin: 0 0 0.25rem 0;
-   color: #403535;
+   text-align: left;
  }
  
  .entry-subtitle {
    margin: 0 0 1.5rem 0;
    font-size: 0.98rem;
-   color: #6c5c5c;
  }
  
  /* Form layout */

@@ -1,7 +1,7 @@
 import { useParams } from "react-router"
 import { useState, useEffect } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faEllipsis, faComment } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faEllipsis, faComment, faTrash, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { supabase } from "../client";
 import { Link } from "react-router";
@@ -164,13 +164,14 @@ const PostDetails = () => {
                            <Link
                               to={`/edit-post/${post.id}`}
                               state={post}
-                              className="dropdown-button"
                            >
-                              Edit
+                              <button className="dropdown-button">
+                              <FontAwesomeIcon icon={faPenToSquare} />Edit
+                              </button>
                            </Link>
 
-                           <button onClick={() => deletePost()}>
-                              Trash
+                           <button className="dropdown-button" onClick={() => deletePost()}>
+                              <FontAwesomeIcon icon={faTrash} />Trash
                            </button>
                         </div>
                         )}

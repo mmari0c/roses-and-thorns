@@ -1,7 +1,7 @@
 import { Outlet, useNavigate, Link } from "react-router"
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faHeart, faPencil } from "@fortawesome/free-solid-svg-icons"
+import { faHeart, faPencil, faBook, faArrowRightFromBracket} from "@fortawesome/free-solid-svg-icons"
 import { supabase } from "../client";
 import { faCircleUser } from "@fortawesome/free-regular-svg-icons"
 
@@ -60,9 +60,13 @@ function Layout() {
                   <div className="user-dropdown">
                      <span>{username}</span>
                      <Link to={`/profile/${username}`} >
-                        <button>View Journal</button>
+                        <button className="dropdown-button">
+                        <FontAwesomeIcon icon={faBook} />My Journal
+                        </button>
                      </Link>
-                     <button onClick={handleLogout}>Log Out</button>
+                     <button className="dropdown-button" onClick={handleLogout}>
+                        <FontAwesomeIcon icon={faArrowRightFromBracket} />Log Out
+                     </button>
                   </div>
                )}
             </nav>

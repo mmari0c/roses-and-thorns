@@ -58,6 +58,8 @@
    margin: 0;
  }
 
+ /* MENU DROPDOWN */
+
  .post-dropdown {
   top: 2.5rem;   /* moves menu below the ellipsis icon */
   right: 0;      /* aligns to the right edge of the post */
