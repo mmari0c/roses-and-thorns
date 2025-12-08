@@ -200,6 +200,7 @@ footer .footer-app {
 
   .paper-shell {
     width: -webkit-fill-available;
+    padding: 1rem;
   }
 }
 
