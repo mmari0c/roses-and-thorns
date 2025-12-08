@@ -55,6 +55,14 @@
   gap: 0.75rem;
 }
 
+.app-nav .create-post-button {
+  background-color: var(--thorn-accent);
+}
+
+.app-nav .create-post-button:hover {
+  background-color: var(--thorn-strong);
+}
+
 .user-menu-wrapper {
   display: flex;
   align-items: center;

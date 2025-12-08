@@ -173,7 +173,7 @@
  }
 
  .comments {
-  background-color: var(--thorn-accent);
+  background-color: var(--thorn-bg);
   padding: 5px 10px;
   border-radius: 15px;
  }
