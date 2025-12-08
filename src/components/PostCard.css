@@ -4,14 +4,17 @@
   background: #fffef9;
   border-radius: 12px;
   padding: 1rem 1.25rem;
-  margin-bottom: 1rem;
   border: 1px solid rgba(0, 0, 0, 0.04);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-  width: 20rem;
+  width: -webkit-fill-available;
   max-height: fit-content;
   position: relative; /* for positioning tape */
   overflow: visible; /* IMPORTANT so tape sticks out */
+  display: inline-block;      /* so it flows inside the columns */
+  margin: 1rem;        /* spacing between cards vertically */
+  break-inside: avoid;        /* don’t split cards between columns */
 }
+
 
 .tape {
   position: absolute;
@@ -141,7 +144,12 @@
 
  .post-content p {
   margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: "Nunito", sans-serif;
  }
+
 
  .post-footer {
   display: flex;
@@ -166,13 +174,10 @@
   border-radius: 15px;
  }
 
- .post-date {
-  font-family: "Nunito", sans-serif;
- }
-
  @media screen and (max-width: 600px) {
   .post-card {
     width: -webkit-fill-available;
+    margin: 1rem 0;
   }
  }
 

@@ -97,11 +97,22 @@
 
 
 .feed {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 1rem;
+  column-count: 1;
+  column-gap: 1.25rem;
 }
+
+/* Two columns on larger screens */
+@media (min-width: 768px) {
+  .feed {
+    column-count: 2;
+  }
+}
+
+/* slightly different tape rotation per card */
+.post-card:nth-child(odd) .tape-left { transform: rotate(-10deg); }
+.post-card:nth-child(even) .tape-left { transform: rotate(10deg); }
+
+.post-card:nth-child(3n) .tape-right { transform: rotate(5deg); }
 
 button {
   border-radius: 1rem;
