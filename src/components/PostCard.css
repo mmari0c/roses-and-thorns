@@ -157,6 +157,10 @@
   gap: 0.5rem;
  }
 
+ .post-date {
+  color: rgb(85, 85, 85);
+ }
+
  .upvotes {
   background-color: var(--rose-accent);
   padding: 5px 10px;
