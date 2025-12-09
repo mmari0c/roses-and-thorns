@@ -99,7 +99,7 @@ function Profile () {
         </label>
       </div>
       {posts.length === 0 ? (
-        <p>You have not made any posts yet.</p>
+        <p className="loading-text">You have not made any entries yet.</p>
       ) : (
         <div className="feed">
           {posts && posts.length > 0 ? (
@@ -107,7 +107,7 @@ function Profile () {
               <PostCard key={post.id} post={post} />
             ))
           ) : (
-            <p>No posts available.</p>
+            <p className="loading-text">Loading entries...</p>
           )
           }
         </div>

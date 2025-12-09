@@ -135,7 +135,7 @@ const PostDetails = () => {
    return (
    <div>
       { !post ? (
-         <div>Loading post details...</div>
+         <div className="loading-text">Loading entry details...</div>
       ) : (
          
          <div className="post-details-container">

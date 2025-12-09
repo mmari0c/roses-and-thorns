@@ -132,139 +132,137 @@ function EditPost() {
 
 
   return (
-<div className="create-page">
-  <button
-    className="create-post-button back-button"
-    onClick={() => window.history.back()}
-  >
-    &larr; Back to Post
-  </button>
+    <div className="create-page">
+      <button
+        className="create-post-button back-button"
+        onClick={() => window.history.back()}
+      >
+        &larr; Back to Post
+      </button>
 
-  <div className="create-post-container entry-paper">
-    {/* <img class="tape tape-left" src={tape} alt="tape" />
-    <img class="tape tape-right" src={tape} alt="tape" /> */}
-    <h2 className="entry-header">✦ Edit Entry</h2>
-    <p className="entry-subtitle">
-      Update your reflection. Tweak your rose or thorn, or add more context.
-    </p>
+      {!postData ? (
+        <div className="loading-text">Loading entry...</div>
+      ) : (
+        <div className="create-post-container entry-paper">
+          {/* <img class="tape tape-left" src={tape} alt="tape" />
+          <img class="tape tape-right" src={tape} alt="tape" /> */}
+          <h2 className="entry-header">✦ Edit Entry</h2>
+          <p className="entry-subtitle">
+            Update your reflection. Tweak your rose or thorn, or add more context.
+          </p>
 
-    <form className="create-post-form" onSubmit={updatePost}>
-      <div className="form-item">
-        <label>Type</label>
-        <div className="create-type">
-          <div className="type-option">
-            <button
-              className={`rose-type ${postData.type === "Rose" ? "active" : ""}`}
-              name="type"
-              type="button"
-              value="Rose"
-              onClick={handleChange}
-            >
-              Rose
-            </button>
-            <span className="tooltip rose">
-              A positive moment or highlight from your day.
-            </span>
-          </div>
+          <form className="create-post-form" onSubmit={updatePost}>
+            <div className="form-item">
+              <label>Type</label>
+              <div className="create-type">
+                <div className="type-option">
+                  <button
+                    className={`rose-type ${postData.type === "Rose" ? "active" : ""}`}
+                    name="type"
+                    type="button"
+                    value="Rose"
+                    onClick={handleChange}
+                  >
+                    Rose
+                  </button>
+                  <span className="tooltip rose">
+                    A positive moment or highlight from your day.
+                  </span>
+                </div>
 
-          <div className="type-option">
-            <button
-              className={`thorn-type ${postData.type === "Thorn" ? "active" : ""}`}
-              name="type"
-              type="button"
-              value="Thorn"
-              onClick={handleChange}
-            >
-              Thorn
-            </button>
-            <span className="tooltip thorn">
-              A challenge or difficult moment you want to reflect on.
-            </span>
-          </div>
+                <div className="type-option">
+                  <button
+                    className={`thorn-type ${postData.type === "Thorn" ? "active" : ""}`}
+                    name="type"
+                    type="button"
+                    value="Thorn"
+                    onClick={handleChange}
+                  >
+                    Thorn
+                  </button>
+                  <span className="tooltip thorn">
+                    A challenge or difficult moment you want to reflect on.
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {postData.image_url ? (
+              <div
+                className="upload-trigger"
+                onClick={() => fileInputRef.current.click()}
+              >
+                <img
+                  src={postData.image_url}
+                  alt="Preview"
+                  className="preview-image"
+                  style={{ pointer: "cursor" }}
+                />
+              </div>
+            ) : null}
+
+            <div className="form-item">
+              <div className="form-content">
+                <input
+                  className="entry-title"
+                  type="text"
+                  name="title"
+                  placeholder="Title"
+                  onChange={handleChange}
+                  required
+                  value={postData.title}
+                />
+                <textarea
+                  className="entry-textarea"
+                  name="content"
+                  placeholder="Write your thoughts here, just like a journal page..."
+                  onChange={handleChange}
+                  value={postData.content}
+                  required
+                ></textarea>
+              </div>
+            </div>
+
+            <div className="form-item">
+              {/* Hidden file input */}
+              <input
+                type="file"
+                accept="image/*"
+                ref={fileInputRef}
+                onChange={handleFileChange}
+                style={{ display: "none" }}
+              />
+
+              {/* Clickable icon OR preview image */}
+              <div
+                className="upload-trigger"
+                onClick={() => fileInputRef.current.click()}
+              >
+                {postData.image_url ? null : (
+                  <FontAwesomeIcon icon={faImage} className="upload-icon" />
+                )}
+              </div>
+            </div>
+
+            <div className="edit-buttons">
+              <button className="submit-entry delete-button" onClick={deletePost}>
+                Trash Entry
+              </button>
+              <button className="edit-button submit-entry" type="submit">
+                Save Changes
+              </button>
+            </div>
+
+            {error && (
+              <div className="error-message">
+                <FontAwesomeIcon icon={faCircleExclamation} />
+                <p className="error-message">{error}</p>
+              </div>
+            )}
+          </form>
         </div>
-      </div>
-
-      {postData.image_url ? (
-        <div
-          className="upload-trigger"
-          onClick={() => fileInputRef.current.click()}
-        >
-          <img
-            src={postData.image_url}
-            alt="Preview"
-            className="preview-image"
-            style={{pointer: "cursor"}}
-          />
-        </div>
-        ) : ( null
       )}
-
-      <div className="form-item">
-        <div className="form-content">
-          <input
-            className="entry-title"
-            type="text"
-            name="title"
-            placeholder="Title"
-            onChange={handleChange}
-            required
-            value={postData.title}
-          />
-          <textarea
-            className="entry-textarea"
-            name="content"
-            placeholder="Write your thoughts here, just like a journal page..."
-            onChange={handleChange}
-            value={postData.content}
-            required
-          ></textarea>
-        </div>
-      </div>
-
-      <div className="form-item">
-        {/* Hidden file input */}
-        <input
-          type="file"
-          accept="image/*"
-          ref={fileInputRef}
-          onChange={handleFileChange}
-          style={{ display: "none" }}
-        />
-
-        {/* Clickable icon OR preview image */}
-        <div
-          className="upload-trigger"
-          onClick={() => fileInputRef.current.click()}
-        >
-          {postData.image_url ? (
-            null
-          ) : (
-            <FontAwesomeIcon icon={faImage} className="upload-icon" />
-          )}
-        </div>
-      </div>
-      
-
-      <div className="edit-buttons">
-        <button className="submit-entry delete-button" onClick={deletePost}>
-          Trash Entry
-        </button>
-        <button className="edit-button submit-entry" type="submit">
-          Save Changes
-        </button>
-      </div>
-
-      {error && (
-        <div className="error-message">
-          <FontAwesomeIcon icon={faCircleExclamation} />
-          <p className="error-message">{error}</p>
-        </div>
-      )}
-    </form>
-  </div>
-</div>
-
-
+    </div>
   );
  }
  

@@ -78,6 +78,7 @@
   flex-direction: column;
   gap: 0.5rem;
   z-index: 10;
+  width: max-content;
 }
 
 .dropdown-button {
@@ -158,6 +159,12 @@ footer .footer-app {
 
 .signup-text.sign-up {
   margin: 0;
+}
+
+.loading-text {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 2rem;
 }
 
 @media (max-width: 450px) {

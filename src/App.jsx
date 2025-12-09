@@ -139,7 +139,7 @@ function App() {
           <PostCard key={post.id} post={post} />
         ))
       ) : (
-        <p>No posts available.</p>
+        <p className='loading-text'>No entries available.</p>
       )
       }
     </div>
